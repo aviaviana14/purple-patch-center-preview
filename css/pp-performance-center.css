@@ -53,8 +53,14 @@
   right: 0;
   z-index: 90;
   color: #fff;
-  background: rgba(0, 0, 0, 0.62);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.82);
+  border-bottom: 0;
+}
+.page-refined.page-performance-center .center-site-header::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--pp-ink);
 }
 .page-refined.page-performance-center .center-site-header__utility {
   display: flex;
@@ -66,10 +72,10 @@
   padding: 22px 24px 12px;
 }
 .page-refined.page-performance-center .center-site-header__utility a {
-  font-family: "Bornia-Bold", serif;
+  font-family: "Bornia-Medium", serif;
   font-size: var(--pp-fs-small, 16px);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--pp-on-dark-muted);
   text-decoration: none;
 }
@@ -1373,12 +1379,23 @@ html.center-booking-open body {
 .page-refined.page-performance-center .scroll-scene--quotes .story-quote__text h4 {
   display: none;
 }
+.page-refined.page-performance-center .value-rows {
+  overflow-x: hidden;
+}
 .page-refined.page-performance-center .center-masonry {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, calc((var(--pp-max) - 12px) / 2))
+    minmax(0, calc((var(--pp-max) - 12px) / 2))
+    minmax(0, 1fr);
   grid-auto-rows: minmax(110px, 16vw);
   gap: 12px;
   margin-top: clamp(32px, 5vh, 48px);
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 .page-refined.page-performance-center .center-masonry__hero {
   grid-column: 2 / span 2;
@@ -1879,6 +1896,10 @@ html.center-booking-open body {
   .page-refined.page-performance-center .center-masonry {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: minmax(140px, 28vw);
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
   .page-refined.page-performance-center .center-masonry__hero,
   .page-refined.page-performance-center .center-masonry > img,

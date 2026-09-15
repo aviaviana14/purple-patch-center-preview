@@ -1,0 +1,3166 @@
+/* Tri Squad vertical-parallax variant — does not change the original refined page */
+
+.page-tri-squad-vertical {
+  --pp-photo-radius: 16px;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) {
+  --pp-photo-radius: 16px;
+}
+/* Consistent photo corners across the page */
+.page-tri-squad-vertical .value-rows__media,
+.page-tri-squad-vertical .tb-photo--float,
+.page-tri-squad-vertical .tb-photo--coach,
+.page-tri-squad-vertical .tb-photo--png img,
+.page-tri-squad-vertical .tb-proven-group .tb-photo,
+.page-tri-squad-vertical .tb-proven-group .tb-photo img,
+.page-tri-squad-vertical .h-scroll__photos,
+.page-tri-squad-vertical .h-scroll__inline-photo,
+.page-tri-squad-vertical .h-scroll__inline-photo img,
+.page-tri-squad-vertical .story-quote__photo,
+.page-tri-squad-vertical .story-quote__photo img,
+.page-tri-squad-vertical .results-closing__photo,
+.page-tri-squad-vertical .results-closing__photo > img,
+.page-tri-squad-vertical .coach-film .coach-card {
+  border-radius: var(--pp-photo-radius);
+}
+
+/* Stats: count centered, then slide left + reveal label */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stats-section__grid {
+  grid-template-columns: 1fr;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stats-section__grid .stat-pill--light {
+  display: grid;
+  grid-template-columns: minmax(4.75rem, max-content) minmax(0, 1fr);
+  grid-column: auto;
+  column-gap: 16px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--light .stat-pill__num {
+  justify-self: start;
+  text-align: left;
+  width: auto;
+  will-change: transform;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--light .stat-pill__label {
+  opacity: 0;
+  transform: translateX(14px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--light.is-counting {
+  grid-template-columns: 1fr;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--light.is-counting .stat-pill__num {
+  grid-column: 1;
+  justify-self: center;
+  text-align: center;
+  width: auto;
+  min-width: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--light.is-counting .stat-pill__label {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: none;
+  transition: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--light.is-settled .stat-pill__num {
+  justify-self: start;
+  text-align: left;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--million .stat-pill__label {
+  opacity: 0;
+  transform: translateX(14px);
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--million.is-label-visible .stat-pill__label,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .stat-pill--light.is-settled .stat-pill__label {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* Keep photo→CTA overlap; stretch band so leftover row is dark, not white */
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing {
+  --pp-cta-band-min: clamp(320px, 46vh, 480px);
+  --pp-cta-photo-band-overlap: 0.4;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__photo {
+  grid-row: 1 / -1;
+  grid-template-rows: minmax(0, 1fr) calc(var(--pp-cta-band-min) * (1 - var(--pp-cta-photo-band-overlap)));
+  align-self: stretch;
+  /* Photo sits over Join cards — don't block quarterly hover */
+  pointer-events: none;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__band,
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__band.closing-cta {
+  align-self: stretch;
+  min-height: var(--pp-cta-band-min);
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: clamp(52px, 8vh, 80px);
+  padding-bottom: clamp(56px, 8vh, 80px);
+  margin-bottom: 0;
+}
+
+/* Run + Off Season: taller CTA content eats min-height slack — keep Tri-like bottom space */
+.page-run-squad-vertical.page-run-squad-overlap .results-closing__band,
+.page-run-squad-vertical.page-run-squad-overlap .results-closing__band.closing-cta,
+.page-refined.page-off-season.page-tri-squad-overlap .results-closing__band,
+.page-refined.page-off-season.page-tri-squad-overlap .results-closing__band.closing-cta {
+  padding-bottom: clamp(72px, 10vh, 112px);
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__stage,
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__grid {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .gallery-marquee {
+  margin-top: 0;
+  padding-top: 0;
+}
+.page-off-season .gallery-marquee {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.page-off-season .gallery-marquee__track {
+  gap: 0;
+}
+.page-off-season .gallery-marquee__track img {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* Final CTA — pitch stays clear of photo; Join cards span under it */
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__band-left--wide {
+  grid-column: 1 / -1;
+  max-width: none;
+  width: 100%;
+  min-width: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch {
+  /* Match left stats column so heading never runs under the photo */
+  width: min(100%, calc((100% - clamp(28px, 4vw, 48px)) * 0.475));
+  max-width: 34rem;
+  margin-bottom: 32px;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch-lead,
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__lead.results-closing__pitch-lead {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  font-family: "Bornia-Black", serif;
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-align: left;
+  color: #fff;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch-sub,
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__sub.results-closing__pitch-sub {
+  max-width: none;
+  width: 100%;
+  margin: 12px 0 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-align: left;
+  color: #fff;
+}
+.page-refined.page-bike-squad.page-run-squad-vertical.page-run-squad-overlap .results-closing__pitch-sub,
+.page-refined.page-bike-squad.page-run-squad-vertical.page-run-squad-overlap .closing-cta__sub.results-closing__pitch-sub,
+.page-refined.page-bike-squad.page-run-squad-vertical.page-run-squad-overlap .closing-cta__join--side-by-side .closing-cta__or {
+  color: var(--pp-on-dark-muted);
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side {
+  width: 100%;
+  max-width: none;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .section-cta,
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .section-cta--in-band {
+  margin: 0;
+}
+.page-tri-squad-vertical.page-tri-squad-overlap .closing-cta__join--side-by-side .closing-cta__or {
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__plans {
+  width: 100%;
+  max-width: none;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .pricing-grid {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch-from-photo {
+  display: none;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__photo .stats-section__photo-copy p {
+  font-family: "Bornia-Bold", serif;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  max-width: 75%;
+  color: #fff;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__photo .stats-section__photo-copy p + p {
+  margin-top: 12px;
+  font-family: "Bornia-Medium", serif;
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  max-width: 75%;
+  opacity: 1;
+}
+
+/* Quarterly shine sits above the gold ::after wash */
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta .price-join {
+  position: relative;
+  overflow: hidden;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta .price-join::before {
+  z-index: 3;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta .price-join--quarterly::after {
+  z-index: 0;
+}
+:is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta .price-join > * {
+  position: relative;
+  z-index: 1;
+}
+
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll {
+  height: auto;
+  position: relative;
+  background-color: #fff;
+  background-image: var(--pp-pattern-light);
+  background-position: top center;
+  background-repeat: repeat;
+  background-size: 100% auto;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .hero.hero--live:not(.hero--run),
+:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .hero.hero--run {
+  margin-bottom: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll {
+  margin-top: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__inner {
+  min-height: 0;
+  height: auto;
+  padding: clamp(48px, 8vh, 80px) 0 clamp(32px, 5vh, 48px);
+  background: transparent;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__pin {
+  position: relative;
+  top: auto;
+  height: auto;
+  overflow: visible;
+  align-items: stretch;
+  display: block;
+  background: transparent;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(48px, 6vw, 96px);
+  align-items: start;
+  /* Match .ppf-header-box edges (20px sides / centered 1230) */
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding-left: max(20px, calc((100vw - var(--pp-max)) / 2));
+  padding-right: max(20px, calc((100vw - var(--pp-max)) / 2));
+  box-sizing: border-box;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__media {
+  position: sticky;
+  /* Vertically center in the viewport below the sticky header */
+  top: calc(
+    var(--pp-header-offset, 86px) +
+      (100vh - var(--pp-header-offset, 86px) - min(78vh, 640px)) / 2
+  );
+  align-self: start;
+  width: 100%;
+  max-width: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__photos {
+  position: relative;
+  width: 100%;
+  max-height: min(78vh, 640px);
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #dfe8ea;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__photo {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__photo.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__content {
+  min-width: 0;
+  width: 100%;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__header {
+  max-width: none;
+  width: 100%;
+  margin: 0 0 clamp(28px, 4.5vh, 48px) !important;
+  padding: 0;
+  text-align: left;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__header .heading {
+  white-space: normal;
+  text-align: left;
+  margin: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__items {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vh, 40px);
+  width: 100%;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__inline-photo {
+  display: none;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  line-height: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__inline-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-panel--copy {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  padding-top: 0;
+  margin-left: 0;
+  align-self: stretch;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-panel--copy + .h-panel--copy {
+  margin-left: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-panel--copy h3,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-panel--copy p {
+  max-width: none;
+  width: 100%;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__meter,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__viewport,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__track,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__chapter {
+  display: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .hiw-footer--in-pin {
+  padding-top: clamp(56px, 8vh, 96px);
+  background: transparent;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .hiw-footer--in-pin .hiw-no-contracts__line {
+  margin: 0 auto clamp(28px, 4vh, 40px);
+  max-width: 42ch;
+  text-align: center;
+  font-family: "Bornia-Bold", serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  letter-spacing: 0.03em;
+  color: var(--pp-ink);
+  line-height: 1.35;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .hiw-footer--in-pin .hiw-no-contracts__tagline {
+  display: block;
+  margin: 0.25em 0 0;
+  font-family: "Bornia-Medium", serif;
+  color: var(--pp-muted);
+}
+
+/* So Much More — overlay headings on photos */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row--reverse {
+  /* Desktop: text left, photo right (interchanged from other rows) */
+  grid-template-columns: 0.85fr 1.15fr;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row--reverse .value-rows__copy {
+  order: 1;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row--reverse .value-rows__media {
+  order: 2;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__media {
+  position: relative;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__media img,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__media video {
+  position: relative;
+  z-index: 0;
+}
+
+/* Training Built — stacked vertical panels, keep photo constellations */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll {
+  height: auto !important;
+  padding-top: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__heading,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__copy h3,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__copy--coaches .tb-panel__heading,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__copy--busy-center .tb-panel__heading,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__copy--results-center .tb-panel__heading,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .tb-panel__copy h3,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .tb-panel__copy--coaches-center h3 {
+  /* Match So Much More overlay subheadings (beats desktop type-scale 32) */
+  font-family: "Bornia-Bold", serif;
+  font-size: clamp(32px, 4.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__pin {
+  position: relative;
+  top: auto;
+  height: auto;
+  overflow: visible;
+  /* Padding lives inside the patterned pin so the bg covers it */
+  padding-top: clamp(48px, 8vh, 88px);
+  box-sizing: border-box;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--pp-pattern-grad);
+  pointer-events: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--pp-pattern-tile);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  opacity: 0.4;
+  pointer-events: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__viewport {
+  overflow: visible;
+  flex: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__track {
+  flex-direction: column;
+  height: auto;
+  overflow: visible;
+  transform: none !important;
+  will-change: auto;
+  gap: clamp(24px, 3.5vh, 40px);
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+  padding-top: clamp(16px, 2.5vh, 28px);
+  padding-bottom: clamp(16px, 2.5vh, 28px);
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__meter,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-mobile-marquee {
+  display: none !important;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel {
+  display: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-slider,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-slider__track,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__photos--busy .tb-slider,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__photos--busy .tb-slider__track,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-photo,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo {
+  display: contents;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-photo,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__photos--busy .tb-photo,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__photos--results .tb-photo {
+  display: block;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-photo--intro-a {
+  bottom: clamp(-120px, -16vh, -64px);
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-photo--intro-b {
+  /* Peek out from behind the hero — keep a modest overlap */
+  right: clamp(22%, 30vw, 38%);
+  top: auto;
+  bottom: clamp(-8%, 4vh, 12%);
+}
+
+/* Busy + Proven combined — tight copy, lower Busy photos, Proven strip ~95% visible */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo {
+  --tb-proven-photo-h: clamp(180px, 20vw, 280px);
+  --tb-proven-hang: 0px;
+  padding-top: clamp(12px, 2vh, 24px);
+  padding-bottom: 0;
+  overflow: visible;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--duo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  min-height: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center {
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  z-index: 6;
+  width: min(calc(100% - 48px), 44ch);
+  max-width: 44ch;
+  margin: 0 auto 0 max(24px, calc((100vw - var(--pp-max)) / 2 + 24px));
+  padding: 0;
+  text-align: left;
+  pointer-events: none;
+  transform: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center .tb-panel__heading,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center .tb-panel__body {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+  width: 100%;
+  white-space: normal;
+}
+
+/* Busy constellation — overlaps Built copy so top-right can sit in the heading band */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__photos--busy {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  height: clamp(560px, 68vh, 780px);
+  margin: clamp(-200px, -22vh, -120px) calc(50% - 50vw) 0;
+  overflow: visible;
+  pointer-events: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__photos--busy .tb-photo {
+  pointer-events: auto;
+  will-change: transform;
+  position: absolute;
+}
+/* Swimmer — top right, beside Built heading (red-zone band) */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-photo--busy-b {
+  left: auto;
+  right: max(12%, calc((100vw - var(--pp-max)) / 2 + 80px));
+  top: clamp(12px, 2.5vh, 36px);
+  bottom: auto;
+  width: clamp(260px, 28vw, 400px);
+  z-index: 1;
+}
+/* Outdoor cyclist — lower right, in front of the swimmer */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-photo--busy-a {
+  left: auto;
+  right: max(8%, calc((100vw - var(--pp-max)) / 2 + 36px));
+  top: auto;
+  bottom: 6%;
+  width: clamp(200px, 22vw, 310px);
+  z-index: 3;
+}
+/* High-five — bottom center */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-photo--busy-c {
+  left: clamp(34%, calc((100vw - var(--pp-max)) / 2 + 300px), 44%);
+  right: auto;
+  top: auto;
+  bottom: 2%;
+  width: clamp(230px, 26vw, 360px);
+  z-index: 2;
+}
+/* Bike — left, kept lower so it stays clear of Built copy (esp. tablet) */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-photo--busy-anchor {
+  left: max(24px, calc((100vw - var(--pp-max)) / 2 + 24px));
+  right: auto;
+  top: auto;
+  bottom: -18%;
+  width: clamp(280px, 32vw, 440px);
+  z-index: 1;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center {
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  z-index: 6;
+  width: min(calc(100% - 48px), 42ch);
+  max-width: 42ch;
+  margin: clamp(28px, 4vh, 48px) auto clamp(12px, 2vh, 20px);
+  padding: 0;
+  text-align: center;
+  pointer-events: none;
+  transform: none !important;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center .tb-panel__heading,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center .tb-panel__body {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  white-space: normal;
+}
+
+/* Proven — static photo groups flanking copy (desktop/tablet); hidden on mobile */
+.page-tri-squad-vertical .tb-proven-stage {
+  position: relative;
+  display: none;
+  width: 100vw;
+  max-width: none;
+  margin: 0 calc(50% - 50vw);
+  padding: 0;
+  overflow: visible;
+  z-index: 1;
+}
+@media (min-width: 1025px) {
+  .page-tri-squad-vertical .tb-proven-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(28ch, 42ch) minmax(0, 1fr);
+    align-items: stretch;
+    column-gap: clamp(16px, 2.5vw, 36px);
+    min-height: 0;
+    padding: clamp(8px, 1.2vh, 16px) 0 0;
+    overflow: hidden;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-panel__copy--results-center {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding-top: 60px;
+    width: 100%;
+    max-width: none;
+    z-index: 4;
+    gap: 0;
+  }
+  /* Bottom-middle photo — Finish (swapped), +25% */
+  .page-tri-squad-vertical .tb-proven-stage .tb-proven-mid-photos {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: clamp(28px, 3.5vh, 44px);
+    margin-bottom: clamp(8px, 1.5vh, 16px);
+    margin-right: clamp(-48px, -6vw, -16px);
+    flex-shrink: 0;
+    overflow: visible;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-below-copy {
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--pp-photo-radius);
+    background: #0a3d44;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
+    will-change: transform;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    width: clamp(287px, 34.5vw, 460px);
+    aspect-ratio: 5 / 4;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-below-copy img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--pp-photo-radius);
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-below-copy.tb-photo--png {
+    background: #0a3d44;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-below-copy.tb-photo--png img {
+    object-fit: cover;
+    box-shadow: none;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-panel__copy--results-center .tb-panel__heading {
+    margin: 0;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-panel__copy--results-center .tb-panel__body {
+    margin: clamp(10px, 1.5vh, 16px) 0 0;
+  }
+  .page-tri-squad-vertical .tb-proven-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2.2vw, 28px);
+    pointer-events: none;
+  }
+  .page-tri-squad-vertical .tb-proven-group .tb-photo {
+    pointer-events: auto;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--pp-photo-radius);
+    background: #0a3d44;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
+    will-change: transform;
+  }
+  .page-tri-squad-vertical .tb-proven-group .tb-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--pp-photo-radius);
+  }
+  .page-tri-squad-vertical .tb-proven-group .tb-photo--png {
+    background: transparent;
+    box-shadow: none;
+  }
+  .page-tri-squad-vertical .tb-proven-group .tb-photo--png img {
+    object-fit: contain;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
+    border-radius: var(--pp-photo-radius);
+  }
+  .page-tri-squad-vertical .tb-proven-stack {
+    position: relative;
+    width: min(100%, clamp(286px, 33.8vw, 442px));
+    height: clamp(338px, 44.2vw, 546px);
+  }
+  .page-tri-squad-vertical .tb-proven-stack .tb-photo {
+    position: absolute;
+  }
+  .page-tri-squad-vertical .tb-proven-stack .tb-photo:first-child {
+    left: 0;
+    top: 0;
+    width: 68%;
+    aspect-ratio: 3 / 4;
+    z-index: 1;
+  }
+  .page-tri-squad-vertical .tb-proven-stack .tb-photo:last-child {
+    right: 0;
+    bottom: 0;
+    width: 72%;
+    aspect-ratio: 5 / 4;
+    z-index: 2;
+  }
+  .page-tri-squad-vertical .tb-proven-group .tb-photo--solo {
+    width: min(100%, clamp(234px, 26vw, 338px));
+    aspect-ratio: 3 / 4;
+    align-self: flex-start;
+  }
+  /* Left group — Team USA top; biter behind medalists (boxed area) */
+  .page-tri-squad-vertical .tb-proven-group--left {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: stretch;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-top: clamp(8px, 2vh, 24px);
+    overflow: visible;
+    min-height: 100%;
+  }
+  /* Team USA — hung left so left edge clips */
+  .page-tri-squad-vertical .tb-proven-group--left .tb-photo--r-a {
+    position: relative;
+    width: clamp(240px, 27.2vw, 360px);
+    aspect-ratio: 3 / 4;
+    z-index: 1;
+    flex-shrink: 0;
+    border-radius: var(--pp-photo-radius);
+    overflow: hidden;
+    transform: translateX(-14%);
+  }
+  /* Bottom-left cluster — medalists in front; biter tucked behind top-right */
+  .page-tri-squad-vertical .tb-proven-group--left .tb-proven-left-bottom {
+    position: relative;
+    z-index: 2;
+    margin-left: clamp(40px, 6vw, 88px);
+    margin-top: clamp(-120px, -16vh, -72px);
+    margin-bottom: -48px;
+    width: min(100%, clamp(350px, 41.4vw, 541px));
+    flex-shrink: 0;
+  }
+  /* Biting medalist — ~20px to the right of Team USA */
+  .page-tri-squad-vertical .tb-proven-group--left .tb-photo--proven-behind-couple {
+    position: absolute;
+    /* Team USA visual right (width × 0.86 after -14% hang) − left-bottom offset + 20px gap */
+    left: calc(clamp(240px, 27.2vw, 360px) * 0.86 - clamp(40px, 6vw, 88px) + 20px);
+    right: auto;
+    top: clamp(-220px, calc(-16vh - 80px), -160px);
+    z-index: 1;
+    width: clamp(160px, 18vw, 230px);
+    aspect-ratio: 3 / 4;
+    margin: 0;
+    border-radius: var(--pp-photo-radius);
+    overflow: hidden;
+  }
+  /* ≤1440: biter only in the bottom slider, not the constellation */
+  @media (max-width: 1440px) {
+    .page-tri-squad-vertical .tb-proven-group--left .tb-photo--proven-behind-couple {
+      display: none !important;
+    }
+  }
+  .page-tri-squad-vertical .tb-proven-group--left .tb-photo--proven-behind-couple img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--pp-photo-radius);
+  }
+  .page-tri-squad-vertical .tb-proven-group--left .tb-photo--png {
+    background: #0a3d44;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
+  }
+  .page-tri-squad-vertical .tb-proven-group--left .tb-photo--png img {
+    object-fit: cover;
+    box-shadow: none;
+    border-radius: var(--pp-photo-radius);
+  }
+  /* Two medalists — in front of biter; section clips bottom */
+  .page-tri-squad-vertical .tb-proven-group--left .tb-photo--solo {
+    position: relative;
+    z-index: 3;
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    border-radius: var(--pp-photo-radius);
+    overflow: hidden;
+  }
+  .page-tri-squad-vertical .tb-proven-group--left .tb-photo--solo img {
+    object-fit: cover;
+    object-position: top center;
+  }
+  /* Right group — Outlaw stays; Finish overlaps it by ~20px */
+  .page-tri-squad-vertical .tb-proven-group--right {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    align-items: flex-end;
+    gap: 0;
+    margin-top: clamp(8px, 2vh, 24px);
+    margin-right: 0;
+    width: min(100%, clamp(390px, 48vw, 650px));
+    overflow: visible;
+  }
+  .page-tri-squad-vertical .tb-proven-group--right .tb-proven-stack {
+    position: relative;
+    z-index: 1;
+    width: min(100%, clamp(280px, 32vw, 420px));
+    height: auto;
+    aspect-ratio: 5 / 4;
+    transform: none;
+  }
+  /* Remaining right stack photo — 10% hang (parallax JS combines with translateY) */
+  .page-tri-squad-vertical .tb-proven-group--right .tb-proven-stack .tb-photo {
+    position: relative;
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    transform: translateX(10%);
+  }
+  /* Medal single (right bottom) — swapped with Finish; +25%; overlaps Outlaw ~20px */
+  .page-tri-squad-vertical .tb-proven-group--right .tb-photo--solo {
+    align-self: center;
+    position: relative;
+    z-index: 3;
+    margin-right: 0;
+    margin-left: clamp(-96px, -9vw, -40px);
+    margin-top: -20px;
+    width: min(100%, clamp(329px, 37vw, 492px));
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    border-radius: var(--pp-photo-radius);
+    background: #0a3d44;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
+  }
+  .page-tri-squad-vertical .tb-proven-group--right .tb-photo--solo img {
+    width: 100%;
+    height: 102%;
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: none;
+    border-radius: var(--pp-photo-radius);
+  }
+}
+
+/* Legacy results strip hooks (unused on Tri vertical; keep harmless) */
+.page-tri-squad-vertical .tb-panel__photos--results {
+  display: none;
+}
+
+/* Training Built > Coaches — single cycling portrait beside left-aligned copy */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__inner--coaches {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  gap: clamp(28px, 5vw, 64px);
+  text-align: left;
+  max-width: var(--pp-max);
+  margin: 0 auto;
+  width: 100%;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-coach-fade {
+  order: 1;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__copy--coaches {
+  order: 2;
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none !important;
+  width: 100%;
+  max-width: 36ch;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  pointer-events: auto;
+  z-index: 1;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__copy--coaches .tb-panel__heading,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__copy--coaches .tb-panel__body {
+  max-width: none;
+  width: 100%;
+  text-align: left;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-coach-fade {
+  position: relative;
+  width: min(100%, clamp(280px, 40vw, 420px));
+  aspect-ratio: 2 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  justify-self: start;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo--coach,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo--c1,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo--c-s {
+  position: absolute;
+  inset: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  transform: none !important;
+  transition: opacity 0.85s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo--coach.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Not Your Father's — sits above hanging Proven photos */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  min-height: min(100vh, 1100px);
+  padding: clamp(64px, 10vw, 150px) 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Matches the dark left edge of the finish-line photo */
+  background-color: #12161b;
+  background-image: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern::before {
+  display: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(152deg, rgba(18, 22, 27, 0) 64.5%, rgba(18, 22, 27, 0.45) 81.6%, rgba(18, 22, 27, 0.8) 98.7%),
+    linear-gradient(-5deg, rgba(18, 22, 27, 0) 68.3%, rgba(18, 22, 27, 0.5) 83.6%, rgba(18, 22, 27, 0.85) 101%),
+    linear-gradient(269deg, rgba(18, 22, 27, 0) 42%, rgba(18, 22, 27, 0.45) 62%, rgb(18, 22, 27) 82%);
+  pointer-events: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern__media img {
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  right: auto;
+  width: auto;
+  height: 145%;
+  max-width: none;
+  transform: translateY(-50%);
+  object-fit: cover;
+  display: block;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--pp-max);
+  margin: 0 auto;
+  width: 100%;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split__sticky {
+  width: 100%;
+  text-align: center;
+  margin-bottom: clamp(12px, 2vh, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split__sticky .heading {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  max-width: min(100%, 36ch);
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split__sticky .heading::after {
+  display: none !important;
+  content: none !important;
+  margin: 0 !important;
+  height: 0 !important;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split__lead {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  max-width: min(100%, 36ch);
+  font-size: clamp(18px, 2.2vw, 28px);
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split__blocks {
+  align-self: flex-start;
+  width: min(100%, 593px);
+  gap: 24px;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-block {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  padding: 40px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.38);
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-block h3,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-block p {
+  color: #fff;
+}
+
+/* Testimonials — more breathing room after editorial */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .scroll-scene--quotes {
+  padding-top: clamp(72px, 12vh, 120px);
+}
+
+/* Coaches — wrap instead of horizontal film; white PP pattern (live) */
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll {
+  height: auto !important;
+  overflow: visible;
+  position: relative;
+  background-color: #fff;
+  background-image: var(--pp-pattern-light);
+  background-position: top center;
+  background-repeat: repeat;
+  background-size: 100% auto;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll__pin {
+  position: relative;
+  top: auto;
+  overflow: visible;
+  height: auto;
+  /* Keep pattern visible — refined pin defaults to solid white */
+  background-color: transparent;
+  background-image: none;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll .coach-film {
+  overflow: visible;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll .coach-film__track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  max-width: var(--pp-max);
+  margin: 0 auto;
+  padding: 0 24px 32px;
+  gap: 16px;
+  transform: none !important;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-film .coach-card {
+  flex: none;
+  width: 100%;
+  will-change: transform;
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-film .coach-card__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 94, 103, 0.88) 0%,
+    rgba(12, 78, 86, 0.96) 40%,
+    rgba(8, 58, 64, 0.98) 100%
+  );
+}
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-film .coach-card__bio,
+:is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-film .coach-card__link {
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+@keyframes tb-proven-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/*
+  Width breakpoints (not device-specific):
+  - ≤1440px → TBFYBL title one line at heading size; hide intro left photo
+  - ≤1366px (and ≥768) → Proven bottom slider
+  - ≤1024px → same TBFYBL stack/spacing as mobile (keep title hero)
+  - 1025–1180px → intro photo + coach tweaks
+  - ≥1025px → Proven constellation (desktop)
+  - ≤767px → full mobile for remaining page sections (+ TBFYBL already covered)
+*/
+/* ——— 1025–1180: intro photo + coach layout tweaks ——— */
+@media (min-width: 1025px) and (max-width: 1180px) {
+  /* Title — no forced break after "For"; claim width freed by removed left photo */
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__intro-copy {
+    max-width: min(58ch, 72%);
+    width: min(100%, 72%);
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title {
+    max-width: none;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line {
+    display: inline;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line + .tb-scroll__title-line::before {
+    content: " ";
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__lead {
+    max-width: 52ch;
+  }
+
+  /* Remove left photo (trail runner) */
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--intro-a {
+    display: none !important;
+  }
+
+  /* Keep overlap layout (not mobile stack) and let photos hang past the right edge */
+  .page-tri-squad-vertical .tb-panel--intro .tb-panel__inner--intro {
+    position: relative;
+    overflow: visible;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-slider,
+  .page-tri-squad-vertical .tb-panel--intro .tb-slider__track {
+    display: contents;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--hero,
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--intro-b {
+    display: block !important;
+    position: absolute;
+  }
+
+  /* Hero finish — right edge; front of the stack */
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--hero {
+    left: auto;
+    right: clamp(-48px, -4vw, -16px);
+    bottom: clamp(-72px, -10vh, -40px);
+    top: auto;
+    z-index: 1;
+    width: auto;
+    max-width: clamp(240px, 34vw, 380px);
+    margin: 0;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--hero img {
+    width: 100%;
+    height: auto;
+    max-height: min(62vh, 520px);
+  }
+
+  /*
+    Upper overlap (intro-b) — sit left of the hero so ~92% is visible
+    (~8% of photo width tucked under the finish photo).
+  */
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--intro-b {
+    left: auto;
+    /* hero width + hero right offset − ~8% of intro-b width (~24px) */
+    right: calc(clamp(240px, 34vw, 380px) + clamp(-48px, -4vw, -16px) - 24px);
+    top: clamp(6%, 8vh, 14%);
+    bottom: auto;
+    z-index: 0;
+    width: clamp(200px, 26vw, 310px);
+    opacity: 0.95;
+    transform: none;
+  }
+
+  /* Coaches — ~25% of container width */
+  .page-tri-squad-vertical .tb-panel--coaches .tb-panel__inner--coaches {
+    grid-template-columns: minmax(0, 25%) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(20px, 3vw, 40px);
+    max-width: none;
+    width: 100%;
+    padding-left: max(24px, calc((100vw - var(--pp-max)) / 2));
+    padding-right: max(24px, calc((100vw - var(--pp-max)) / 2));
+  }
+  .page-tri-squad-vertical .tb-panel--coaches .tb-coach-fade {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+  }
+  .page-tri-squad-vertical .tb-panel--coaches .tb-panel__copy--coaches {
+    max-width: none;
+    width: 100%;
+  }
+
+  /*
+    BFBL — keep bike lower than the copy, but still overlapping the high-five
+    (busy-c) so the constellation doesn’t read as disconnected.
+  */
+  .page-tri-squad-vertical .tb-panel--duo .tb-photo--busy-anchor {
+    bottom: -10%;
+    z-index: 1;
+  }
+  .page-tri-squad-vertical .tb-panel--duo .tb-photo--busy-c {
+    left: clamp(30%, calc((100vw - var(--pp-max)) / 2 + 260px), 40%);
+    bottom: 6%;
+    z-index: 2;
+  }
+}
+
+/* ——— 768–1366: Proven bottom photo marquee (alongside intro-b hide, title size, etc.) ——— */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .page-tri-squad-vertical .tb-proven-stage {
+    display: block;
+    width: 100%;
+    margin: 0;
+    min-height: 0;
+    padding: 0;
+  }
+  .page-tri-squad-vertical .tb-proven-group,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-above-copy,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-below-copy,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-beside-mid,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-beside-usa,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-behind-couple,
+  .page-tri-squad-vertical .tb-proven-stage .tb-proven-mid-photos,
+  .page-tri-squad-vertical .tb-proven-stage .tb-proven-left-bottom {
+    display: none !important;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-panel__copy--results-center {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    display: block;
+  }
+  .page-tri-squad-vertical .tb-scroll__pin > .tb-photo-carousel,
+  .page-tri-squad-vertical .tb-photo-carousel {
+    display: block !important;
+    visibility: visible;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 48px 0 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .page-tri-squad-vertical .tb-photo-carousel__track {
+    display: flex !important;
+    gap: 0;
+    width: max-content;
+    max-width: none;
+    margin: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding: 0;
+  }
+  .page-tri-squad-vertical .tb-photo-carousel__track.is-marquee {
+    animation-name: tb-proven-marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+  .page-tri-squad-vertical .tb-photo-carousel__slide {
+    flex: 0 0 min(22vw, 200px);
+    width: min(22vw, 200px);
+    margin: 0;
+    scroll-snap-align: none;
+    border-radius: 0;
+    overflow: hidden;
+    line-height: 0;
+    background: #1a1a1a;
+  }
+  .page-tri-squad-vertical .tb-photo-carousel__slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__layout {
+    grid-template-columns: minmax(200px, 0.8fr) minmax(0, 1.2fr);
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__media {
+    max-width: none;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll .coach-film__track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ——— ≤1440: TBFYBL title → standard heading size, one line; hide left intro photo ——— */
+@media (max-width: 1440px) {
+  .page-tri-squad-vertical.page-refined .tb-panel--intro .tb-scroll__title,
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title {
+    font-size: clamp(32px, 4.4vw, 48px);
+    line-height: 1.1;
+    max-width: none;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line {
+    display: inline;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line + .tb-scroll__title-line::before {
+    content: " ";
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--intro-a {
+    display: none !important;
+  }
+}
+
+/* ——— ≤1024: same TBFYBL stack as mobile; keep title hero; marquee stays ——— */
+@media (max-width: 1024px) {
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__track {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo {
+    min-height: 0;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--intro,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--center,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--duo,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--coaches {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+    box-sizing: border-box;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__intro-copy,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__title,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__lead {
+    margin-bottom: 0 !important;
+    margin-top: 0;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title {
+    max-width: none;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line {
+    display: inline;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line + .tb-scroll__title-line::before {
+    content: " ";
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__lead {
+    margin-top: 12px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__inner--coaches {
+    display: block !important;
+    grid-template-columns: none !important;
+    max-width: none;
+    width: 100%;
+    gap: 0;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__copy--coaches {
+    display: block !important;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    order: unset !important;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__heading,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__body {
+    margin-top: 0;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__body {
+    margin-top: 12px;
+  }
+  /* Kill coach portrait stage entirely (aspect-ratio was leaving a tall empty column) */
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-coach-fade,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-coach-fade,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-photo,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--busy,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--results,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--coaches,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--busy .tb-slider,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--results .tb-slider,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-photo--intro-a,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-photo--intro-b {
+    display: none !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    min-height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+  }
+  .page-tri-squad-vertical .tb-proven-stage {
+    display: block;
+    width: 100%;
+    margin: 0;
+    min-height: 0;
+    padding: 0;
+  }
+  .page-tri-squad-vertical .tb-proven-group {
+    display: none !important;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-above-copy,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-below-copy,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-beside-mid,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-beside-usa,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-behind-couple,
+  .page-tri-squad-vertical .tb-proven-stage .tb-proven-mid-photos {
+    display: none !important;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-panel__copy--results-center {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo {
+    --tb-proven-hang: 0px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__inner--duo {
+    gap: 60px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center .tb-panel__heading,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center .tb-panel__body,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center .tb-panel__heading,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center .tb-panel__body {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    transform: none !important;
+    pointer-events: auto;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__body {
+    margin-top: 12px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__pin {
+    padding-bottom: 0;
+    overflow: visible;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__pin > .tb-photo-carousel,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel {
+    display: block !important;
+    visibility: visible;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 60px 0 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__track {
+    display: flex !important;
+    gap: 0;
+    width: max-content;
+    max-width: none;
+    margin: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding: 0;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__track.is-marquee {
+    animation-name: tb-proven-marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__slide {
+    flex: 0 0 min(46.8vw, 180px);
+    width: min(46.8vw, 180px);
+    margin: 0;
+    scroll-snap-align: none;
+    border-radius: 0;
+    overflow: hidden;
+    line-height: 0;
+    background: #1a1a1a;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  /* Only delta vs mobile: keep the title hero */
+  .page-tri-squad-vertical .tb-panel--intro .tb-slider,
+  .page-tri-squad-vertical .tb-panel--intro .tb-slider__track {
+    display: contents;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--hero {
+    display: block !important;
+    position: absolute;
+    right: clamp(-48px, -4vw, -16px);
+    bottom: clamp(-72px, -10vh, -40px);
+    left: auto;
+    top: auto;
+    width: auto;
+    max-width: clamp(240px, 34vw, 380px);
+    height: auto !important;
+    max-height: none;
+    min-height: 0;
+    margin: 0;
+    z-index: 1;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-photo--hero img {
+    width: 100%;
+    height: auto;
+    max-height: min(62vh, 520px);
+  }
+
+  /*
+    Final collapse pass — coach fade aspect-ratio box was still sizing the
+    coaches row (copy vertically centered → large empty band under the body).
+  */
+  .page-tri-squad-vertical.page-refined .tb-panel--coaches .tb-coach-fade,
+  .page-tri-squad-vertical .tb-panel--coaches .tb-coach-fade,
+  .page-tri-squad-vertical.page-refined [data-coach-fade],
+  .page-tri-squad-vertical [data-coach-fade] {
+    display: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    aspect-ratio: unset !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+  .page-tri-squad-vertical.page-refined .tb-panel--coaches .tb-panel__inner--coaches,
+  .page-tri-squad-vertical .tb-panel--coaches .tb-panel__inner--coaches {
+    display: block !important;
+    align-items: stretch !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
+/* ——— ≤767: TBFYBL mobile + other sections (HIW, coaches film, quotes, editorial) ——— */
+@media (max-width: 767px) {
+  /* TBFYBL — mobile stack; carousel at bottom */
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__track {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo {
+    min-height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--intro,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--center,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--duo,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__inner--coaches {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__intro-copy,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__title,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__lead {
+    margin-bottom: 0 !important;
+    margin-top: 0;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title {
+    max-width: none;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line {
+    display: inline;
+  }
+  .page-tri-squad-vertical .tb-panel--intro .tb-scroll__title-line + .tb-scroll__title-line::before {
+    content: " ";
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-scroll__lead {
+    margin-top: 12px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__inner--coaches {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    gap: 0;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__copy--coaches {
+    max-width: none;
+    margin: 0;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__heading,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__body {
+    margin-top: 0;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-panel__body {
+    margin-top: 12px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-coach-fade,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-slider,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-slider__track,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--intro .tb-photo,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--coaches .tb-photo,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-photo,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--busy,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--results,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--coaches,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--busy .tb-slider,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel__photos--results .tb-slider {
+    display: none !important;
+  }
+  .page-tri-squad-vertical .tb-proven-stage {
+    display: block;
+    width: 100%;
+    margin: 0;
+    min-height: 0;
+    padding: 0;
+  }
+  .page-tri-squad-vertical .tb-proven-group {
+    display: none !important;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-above-copy,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-below-copy,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-beside-mid,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-beside-usa,
+  .page-tri-squad-vertical .tb-proven-stage .tb-photo--proven-behind-couple,
+  .page-tri-squad-vertical .tb-proven-stage .tb-proven-mid-photos {
+    display: none !important;
+  }
+  .page-tri-squad-vertical .tb-proven-stage .tb-panel__copy--results-center {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo {
+    --tb-proven-hang: 0px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__inner--duo {
+    gap: 60px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center .tb-panel__heading,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--busy-center .tb-panel__body,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center .tb-panel__heading,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__copy--results-center .tb-panel__body {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    transform: none !important;
+    pointer-events: auto;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-panel--duo .tb-panel__body {
+    margin-top: 12px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__pin {
+    padding-bottom: 0;
+    overflow: visible;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-scroll__pin > .tb-photo-carousel,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel {
+    display: block !important;
+    visibility: visible;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 60px 0 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__track {
+    display: flex !important;
+    gap: 0;
+    width: max-content;
+    max-width: none;
+    margin: 0;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding: 0;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__track.is-marquee {
+    animation-name: tb-proven-marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__slide {
+    flex: 0 0 min(46.8vw, 180px);
+    width: min(46.8vw, 180px);
+    margin: 0;
+    scroll-snap-align: none;
+    border-radius: 0;
+    overflow: hidden;
+    line-height: 0;
+    background: #1a1a1a;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .tb-photo-carousel__slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row--reverse {
+    grid-template-columns: 1fr;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row--reverse:not(:has(.value-rows__overlay-title)) .value-rows__copy,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__row--reverse:not(:has(.value-rows__overlay-title)) .value-rows__media {
+    order: unset;
+  }
+  /* Single column: overlay photo always before body copy */
+  :is(.page-tri-squad-vertical, .page-run-squad-vertical) .value-rows__row:has(.value-rows__overlay-title) .value-rows__media,
+  :is(.page-tri-squad-vertical, .page-run-squad-vertical) .value-rows__row--reverse:has(.value-rows__overlay-title) .value-rows__media {
+    order: -1;
+  }
+  :is(.page-tri-squad-vertical, .page-run-squad-vertical) .value-rows__row:has(.value-rows__overlay-title) .value-rows__copy,
+  :is(.page-tri-squad-vertical, .page-run-squad-vertical) .value-rows__row--reverse:has(.value-rows__overlay-title) .value-rows__copy {
+    order: 1;
+  }
+  /* Overlay-heading rows: inset photo (match section side padding) + gradient + title */
+  :is(.page-tri-squad-vertical, .page-run-squad-vertical) .value-rows__row:has(.value-rows__overlay-title) .value-rows__media {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: var(--pp-photo-radius, 16px);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  :is(.page-tri-squad-vertical, .page-run-squad-vertical) .value-rows__row:has(.value-rows__overlay-title) .value-rows__media img,
+  :is(.page-tri-squad-vertical, .page-run-squad-vertical) .value-rows__row:has(.value-rows__overlay-title) .value-rows__media video {
+    width: 100%;
+    border-radius: var(--pp-photo-radius, 16px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__media img,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__media video {
+    aspect-ratio: 1 / 1;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .value-rows__overlay-title {
+    padding: 28px 20px;
+  }
+
+  /* HIW — hide sticky media; show interleaved inline photos */
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__layout {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 24px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__media {
+    display: none !important;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__inline-photo {
+    display: block;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__items {
+    gap: clamp(24px, 4vh, 36px);
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll__inline-photo + .h-panel--copy {
+    margin-top: 4px;
+  }
+
+  /* Meet coaches — horizontal swipe slider; page scroll stays free */
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .coach-scroll,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .coach-scroll__pin {
+    background-color: #fff;
+    background-image: var(--pp-pattern-light);
+    background-position: top center;
+    background-repeat: repeat;
+    background-size: 100% auto;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll .coach-film {
+    overflow: visible;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll .coach-film__track {
+    display: flex;
+    flex-wrap: nowrap;
+    grid-template-columns: none;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0 0 32px;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
+    scrollbar-width: none;
+    cursor: grab;
+    transform: none !important;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-scroll .coach-film__track::-webkit-scrollbar {
+    display: none;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-film .coach-card {
+    flex: 0 0 min(58.5vw, 225px);
+    width: min(58.5vw, 225px);
+    scroll-snap-align: start;
+    will-change: auto;
+    transform: none !important;
+  }
+  /* Leading/trailing inset (padding-left is unreliable on overflow flex) */
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-film .coach-card:first-child {
+    margin-left: 16px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .coach-film .coach-card:last-child {
+    margin-right: 16px;
+  }
+
+  /* Don't Just Take Our Word For It — tighter mobile padding */
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .scroll-scene--quotes {
+    padding: 40px 16px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .scroll-scene--quotes .scroll-scene__header {
+    margin-bottom: 24px;
+  }
+
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern {
+    min-height: 0;
+    padding: clamp(48px, 8vw, 72px) 16px 0;
+    overflow: visible;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern::after {
+    display: none;
+  }
+  .page-refined.page-strength-squad.page-run-squad-vertical .editorial-pattern::after,
+  .page-refined.page-strength-squad.page-tri-squad-vertical .editorial-pattern::after {
+    display: block;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split {
+    order: 1;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-split__blocks {
+    align-self: stretch;
+    width: 100%;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern .editorial-block {
+    padding: 24px;
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern__media {
+    position: relative;
+    inset: auto;
+    order: 2;
+    z-index: 0;
+    width: 100vw;
+    margin: clamp(28px, 5vh, 40px) calc(50% - 50vw) 0;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-height: min(72vh, 640px);
+  }
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .editorial-pattern__media img {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    transform: none;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+}
+
+/* Final CTA — mobile stack at ≤1024px viewport width; stats 2-col at 768–1024px in refined.css */
+@media (max-width: 1024px) {
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__grid {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__stats {
+    order: 1;
+    grid-row: auto;
+    padding-bottom: clamp(20px, 3vh, 28px);
+    position: relative;
+    z-index: 1;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__photo {
+    order: 2;
+    grid-row: auto;
+    grid-column: auto;
+    position: relative;
+    z-index: 2;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: clamp(-56px, -9vh, -40px);
+    height: auto;
+    display: block;
+    grid-template-rows: none;
+    overflow: hidden;
+    border-radius: var(--pp-photo-radius);
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__photo > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: var(--pp-photo-radius);
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__photo .stats-section__photo-copy {
+    display: none !important;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__band {
+    order: 3;
+    grid-row: auto;
+    position: relative;
+    z-index: 1;
+    padding-top: clamp(88px, 16vh, 120px);
+    min-height: 0;
+    height: auto;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__band-left,
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__band-left--wide,
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch {
+    position: relative;
+    z-index: 3;
+    grid-column: auto;
+    width: 100%;
+    max-width: none;
+    padding-right: 0;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch-from-photo {
+    display: block;
+    margin: 16px 0 0;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch-from-photo p {
+    margin: 0;
+    font-family: "Bornia-Medium", serif;
+    font-size: clamp(15px, 3.8vw, 18px);
+    line-height: 1.45;
+    color: inherit;
+    max-width: none;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .results-closing__pitch-from-photo p + p {
+    margin-top: 10px;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side {
+    width: 100%;
+    align-items: stretch;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .section-cta,
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .section-cta .cta-stack,
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .section-cta .btn-blue {
+    width: 100%;
+    max-width: none;
+    align-items: stretch;
+    box-sizing: border-box;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__plans,
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .pricing-grid {
+    max-width: none;
+    width: 100%;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  :is(:is(.page-tri-squad-vertical,.page-run-squad-vertical).page-tri-squad-overlap,.page-run-squad-vertical.page-run-squad-overlap) .closing-cta__join--side-by-side .price-join {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* ——— Off-Season landing (duplicate of Tri Squad vertical) ——— */
+.page-off-season.page-refined .hero.hero--offseason {
+  /* Match Tri/Run top inset; keep extra bottom for video overlap */
+  align-items: flex-end;
+  overflow: hidden;
+  min-height: clamp(360px, 48vh, 520px);
+  padding-top: var(--pp-hero-pad-y);
+  padding-bottom: clamp(140px, 22vh, 220px);
+  margin-bottom: 0;
+}
+.page-off-season.page-refined .hero.hero--offseason .hero__media img {
+  object-fit: cover;
+  object-position: right 15%;
+  transform: scale(1.25);
+  transform-origin: right 15%;
+}
+@media (max-width: 1024px) {
+  .page-off-season.page-refined .hero.hero--offseason .hero__media img {
+    object-position: 72% 15%;
+    transform: scale(1.15);
+    transform-origin: 72% 15%;
+  }
+}
+.page-off-season.page-refined .hero.hero--offseason .hero__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.38) 0%,
+    rgba(0, 0, 0, 0.55) 42%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+.page-off-season.page-refined .hero.hero--offseason .hero__content {
+  width: 100%;
+  max-width: var(--pp-max);
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-off-season .hero__eyebrow {
+  position: static;
+  z-index: auto;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+  max-width: 52ch;
+  margin: 0 0 20px;
+  text-align: left;
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-body, 18px);
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: #fff;
+}
+.page-off-season.page-refined .hero.hero--live .hero__content h1,
+.page-off-season.page-refined .hero.hero--offseason h1 {
+  max-width: 16ch;
+  width: auto;
+  margin-left: 0;
+  margin-right: auto;
+}
+.page-off-season.page-refined .hero.hero--live .sub,
+.page-off-season .hero--offseason .sub {
+  max-width: 48ch;
+  width: auto;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.page-off-season .walkthrough {
+  padding: clamp(36px, 6vh, 64px) 24px;
+  background: #fff;
+}
+.page-off-season [data-pp-block="matt-video"] {
+  position: relative;
+  z-index: 3;
+  margin-top: clamp(-120px, -16vh, -80px);
+  padding-top: 0;
+  padding-bottom: clamp(36px, 5vh, 56px);
+  background: transparent;
+}
+.page-off-season .walkthrough__inner {
+  max-width: min(960px, var(--pp-max));
+  margin: 0 auto;
+}
+.page-off-season .walkthrough__player {
+  margin: 0 0 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #dfe8ea;
+  line-height: 0;
+  box-shadow: 0 18px 48px rgba(13, 16, 18, 0.28);
+}
+.page-off-season .walkthrough__player video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #111;
+}
+.page-off-season [data-pp-block="matt-video"] .walkthrough__player video,
+.page-off-season [data-pp-block="max-video"] .walkthrough__player video {
+  object-fit: contain;
+}
+.page-off-season .walkthrough__caption {
+  margin: 14px 0 0;
+  text-align: center;
+  font-family: "Bornia-Medium", serif;
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--pp-muted);
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-off-season [data-pp-block="matt-video"] .walkthrough__caption {
+  position: relative;
+  z-index: 1;
+  margin-top: 16px;
+  padding: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-subtitle, 24px);
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--pp-muted);
+  background: transparent;
+  max-width: 42rem;
+  width: auto;
+  box-sizing: border-box;
+}
+.page-off-season .walkthrough__caption--above {
+  margin: 0 auto 18px;
+  max-width: 62ch;
+}
+.page-off-season:not(.page-off-season-sticky-waitlist) [data-pp-block="max-video"] {
+  background-color: #fff;
+  background-image: var(--pp-pattern-light);
+  background-position: top center;
+  background-repeat: repeat;
+  background-size: 100% auto;
+}
+.page-off-season [data-pp-block="max-video"] .walkthrough__intro {
+  margin: 0 auto clamp(28px, 4vh, 40px);
+  max-width: var(--pp-max);
+}
+.page-off-season [data-pp-block="max-video"] .walkthrough__intro.scroll-scene__header {
+  margin-bottom: clamp(28px, 4vh, 40px);
+}
+.page-off-season [data-pp-block="max-video"] .walkthrough__intro .lead {
+  max-width: 42rem;
+}
+.page-off-season .walkthrough__cta {
+  margin-top: clamp(28px, 4vh, 40px);
+  max-width: none;
+}
+.page-off-season .walkthrough__cta .offseason-cta__coach {
+  color: var(--pp-muted);
+}
+.page-off-season .walkthrough__cta .btn-blue-outline {
+  color: var(--pp-blue);
+  border-color: var(--pp-blue);
+}
+.page-off-season .walkthrough__cta .btn-blue-outline:hover {
+  background: var(--pp-blue);
+  color: #fff;
+}
+
+/* Max section — mobile: heading → video → CTAs; desktop: video | copy */
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vh, 40px);
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__intro {
+  margin: 0;
+  max-width: none;
+  order: 1;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__intro.scroll-scene__header {
+  margin-bottom: 0;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__player {
+  margin: 0;
+  width: 100%;
+  order: 2;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__cta {
+  margin-top: 0;
+  order: 3;
+}
+@media (min-width: 900px) {
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    grid-template-areas:
+      "player intro"
+      "player cta";
+    align-items: center;
+    column-gap: clamp(32px, 4vw, 56px);
+    row-gap: 12px;
+    max-width: var(--pp-max);
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__player {
+    grid-area: player;
+    order: unset;
+    width: 100%;
+    max-width: none;
+    align-self: center;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__intro {
+    grid-area: intro;
+    order: unset;
+    text-align: left;
+    align-self: end;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__intro .heading {
+    font-family: "Bornia-Bold", serif;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+    text-align: left;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__intro .heading::after {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__intro .lead {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 36rem;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__cta {
+    grid-area: cta;
+    order: unset;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    text-align: left;
+    align-self: start;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .cta-stack {
+    align-items: flex-start;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__cta .btn-blue {
+    margin-top: 0;
+    margin-left: 0;
+    align-self: flex-start;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .walkthrough__cta .btn-blue-outline {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .offseason-cta__coach-row {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}
+
+/* Final CTA — join column matches pitch width; plans fill that column */
+.page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 28px;
+  width: min(100%, calc((100% - clamp(28px, 4vw, 48px)) * 0.475));
+  max-width: 34rem;
+}
+.page-refined.page-off-season.page-tri-squad-overlap .closing-cta__plans,
+.page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .pricing-grid {
+  width: 100%;
+  max-width: none;
+}
+.page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .pricing-grid {
+  grid-template-columns: 1fr;
+}
+.page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .price-join {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .page-refined.page-off-season.page-tri-squad-overlap .results-closing__band-left,
+  .page-refined.page-off-season.page-tri-squad-overlap .results-closing__band-left--wide,
+  .page-refined.page-off-season.page-tri-squad-overlap .results-closing__pitch {
+    width: 100%;
+    max-width: none;
+    padding-right: 0;
+  }
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side,
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__plans,
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .pricing-grid {
+    width: 100%;
+    max-width: none;
+    align-items: stretch;
+  }
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .price-join,
+  .page-refined.page-off-season.page-tri-squad-overlap .offseason-cta--in-band {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+  .page-refined.page-off-season.page-tri-squad-overlap .offseason-cta--in-band .btn-blue-outline {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+}
+
+.page-off-season .offseason-cta-band {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(40px, 6vh, 72px) 24px;
+  background: var(--pp-pattern-grad);
+  color: #fff;
+}
+.page-off-season .offseason-cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--pp-pattern-tile);
+  background-repeat: repeat;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.page-off-season #start-training {
+  scroll-margin-top: calc(var(--pp-header-offset, 86px) + 32px);
+}
+.page-off-season .offseason-cta {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.page-off-season .offseason-cta .cta-stack {
+  margin-top: 0;
+}
+.page-off-season .offseason-cta__coach {
+  margin: 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--pp-muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.page-off-season .offseason-cta__coach-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 16px;
+  margin-top: 16px;
+}
+.page-off-season .offseason-cta__coach-row .offseason-cta__coach {
+  margin: 0;
+}
+.page-off-season .offseason-cta__coach-row .btn-blue-outline {
+  margin-top: 0;
+}
+.page-off-season .offseason-cta .btn-blue-outline {
+  margin-top: 0;
+}
+.page-off-season .offseason-cta-band .offseason-cta__coach {
+  color: rgba(255, 255, 255, 0.86);
+}
+.page-off-season .offseason-cta-band .btn-blue-outline {
+  color: #fff;
+  border-color: #fff;
+}
+.page-off-season .offseason-cta-band .btn-blue-outline:hover {
+  background: #fff;
+  color: var(--pp-ink);
+}
+.page-off-season .offseason-waitlist {
+  margin-top: 24px;
+}
+.page-off-season .offseason-waitlist__heading {
+  margin: 0;
+  font-family: "Bornia-Black", serif;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.page-off-season .offseason-waitlist__copy {
+  margin: 16px auto 0;
+  max-width: 42rem;
+  font-family: "Bornia-Bold", serif;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
+}
+.page-off-season .offseason-waitlist__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.page-off-season .offseason-waitlist input[type="email"] {
+  flex: 1 1 220px;
+  min-width: 0;
+  max-width: 320px;
+  padding: 14px 16px;
+  border: 2px solid transparent;
+  border-radius: 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: 15px;
+  color: var(--pp-ink);
+  background: #fff;
+}
+.page-off-season .offseason-waitlist input[type="email"]:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+.page-off-season .offseason-waitlist .btn-blue {
+  margin-top: 0;
+}
+.page-off-season .offseason-waitlist__thanks {
+  margin: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.page-off-season .h-panel--copy h3 {
+  max-width: none;
+  text-transform: none;
+}
+.page-off-season .h-panel--copy p {
+  max-width: none;
+}
+
+/* Different training — typographic layout */
+.page-off-season [data-pp-block="different-training"].train-type {
+  background-color: #fff;
+  background-image: var(--pp-pattern-light);
+  background-position: top center;
+  background-repeat: repeat;
+  background-size: 100% auto;
+  padding: clamp(72px, 12vh, 120px) 24px;
+}
+.page-off-season .train-type__inner {
+  max-width: var(--pp-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(56px, 9vh, 96px);
+}
+.page-off-season .train-type__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 38rem);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+  width: fit-content;
+  max-width: 100%;
+}
+.page-off-season .train-type__num {
+  margin: 0;
+  font-family: "Bornia-Black", serif;
+  font-size: clamp(48px, 8vw, 90px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--pp-blue);
+}
+.page-off-season .train-type__copy {
+  min-width: 0;
+  max-width: 38rem;
+  padding-top: clamp(4px, 0.6vw, 10px);
+}
+.page-off-season .train-type__title {
+  margin: 0 0 16px;
+  font-family: "Bornia-Black", serif;
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--pp-ink, #1a1a1a);
+}
+.page-off-season .train-type__body {
+  margin: 0;
+  max-width: none;
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-subtitle, 24px);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: var(--pp-muted);
+}
+@media (max-width: 640px) {
+  .page-off-season .train-type__item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .page-off-season .train-type__num {
+    font-size: clamp(40px, 12vw, 56px);
+  }
+  .page-off-season .train-type__copy {
+    padding-top: 0;
+  }
+  .page-off-season .train-type__body {
+    font-size: var(--pp-fs-body, 18px);
+    line-height: 1.55;
+  }
+}
+
+.story-quotes--carousel {
+  position: relative;
+  gap: clamp(48px, 8vh, 72px);
+}
+.story-quotes--carousel .story-quotes__nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.story-quotes--carousel .story-quotes__btn {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  color: var(--pp-blue);
+  cursor: pointer;
+  line-height: 0;
+}
+.story-quotes--carousel .story-quotes__btn:hover {
+  color: var(--pp-blue-deep);
+}
+.story-quotes--carousel .story-quotes__btn svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+.story-quotes--carousel .story-quotes__dots {
+  display: flex;
+  gap: 8px;
+}
+.story-quotes--carousel .story-quotes__dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 2px solid var(--pp-blue);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.story-quotes--carousel .story-quotes__dots button.is-active {
+  background: var(--pp-blue);
+}
+
+.page-off-season .story-quote__photo img {
+  object-position: top center;
+}
+.page-off-season .story-quote__photo--middle img {
+  object-position: center center;
+}
+
+.page-off-season .faq-split {
+  grid-template-columns: 1fr;
+  max-width: var(--pp-max);
+}
+.page-off-season .faq-split__copy {
+  width: 100%;
+  max-width: none;
+}
+.page-off-season .faq-split__copy .heading {
+  margin-bottom: 28px;
+  font-family: "Bornia-Black", serif;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+}
+@media (min-width: 1025px) {
+  .page-off-season .faq-split__copy .heading {
+    font-size: var(--pp-fs-display, 48px);
+    line-height: 1.2;
+  }
+}
+.page-off-season .faq-item summary {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+.page-off-season .faq-item p,
+.page-off-season .faq-item__panel {
+  max-width: none;
+  width: 100%;
+}
+
+.page-off-season .stats-section__grid .stat-pill--light {
+  grid-template-columns: 1fr;
+}
+.page-off-season .stat-pill--light .stat-pill__copy {
+  margin: 0;
+  min-width: 0;
+}
+.page-off-season .stat-pill--light .stat-pill__heading {
+  margin: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--pp-ink);
+}
+.page-off-season .stat-pill--light .stat-pill__body {
+  margin: 6px 0 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.45;
+  color: var(--pp-muted);
+}
+
+.page-off-season .offseason-cta--in-band {
+  max-width: none;
+  width: 100%;
+  text-align: left;
+}
+.page-off-season .offseason-cta--in-band .offseason-cta__coach-row {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 0;
+}
+.page-off-season .offseason-cta--in-band .offseason-cta__coach,
+.page-off-season .offseason-cta--in-band .offseason-waitlist__thanks {
+  color: rgba(255, 255, 255, 0.86);
+}
+.page-off-season .offseason-cta--in-band .offseason-waitlist {
+  margin-top: 0;
+}
+.page-off-season .offseason-cta--in-band .offseason-waitlist__heading {
+  text-align: left;
+  margin-top: 48px;
+}
+.page-off-season .offseason-cta--in-band .offseason-waitlist__copy {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+  max-width: 36rem;
+}
+.page-off-season .offseason-cta--in-band .btn-blue-outline {
+  color: var(--pp-blue);
+  border-color: var(--pp-blue);
+}
+.page-off-season .offseason-cta--in-band .btn-blue-outline:hover {
+  background: var(--pp-blue);
+  color: #fff;
+}
+.page-off-season .offseason-cta--in-band .offseason-waitlist__row {
+  justify-content: flex-start;
+}
+.page-off-season .offseason-cta--in-band .offseason-waitlist input[type="email"] {
+  background: #fff;
+  border-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .page-off-season .hero__eyebrow {
+    letter-spacing: 0.08em;
+  }
+  .page-off-season.page-refined .hero.hero--offseason {
+    min-height: clamp(300px, 42vh, 420px);
+    padding-top: var(--pp-hero-pad-y);
+    padding-bottom: clamp(100px, 18vh, 160px);
+  }
+  .page-off-season [data-pp-block="matt-video"] {
+    margin-top: clamp(-90px, -14vh, -60px);
+  }
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side,
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__plans,
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .pricing-grid {
+    width: 100%;
+    max-width: none;
+  }
+  .page-refined.page-off-season.page-tri-squad-overlap .closing-cta__join--side-by-side .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Pattern tiles must cover full section height on tall mobile layouts */
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical) .h-scroll,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .coach-scroll,
+  :is(.page-tri-squad-vertical,.page-run-squad-vertical).page-refined .coach-scroll__pin {
+    background-repeat: repeat;
+    background-size: 100% auto;
+  }
+  .page-off-season .offseason-cta-band,
+  .page-off-season .results-closing__band.closing-cta,
+  .page-off-season .closing-cta {
+    isolation: isolate;
+  }
+  .page-off-season .offseason-cta-band::before,
+  .page-off-season .closing-cta::before {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+    background-size: auto;
+  }
+  .page-off-season .cta-stack {
+    align-items: stretch;
+    width: 100%;
+  }
+  .page-off-season .btn-blue,
+  .page-off-season .btn-blue-outline,
+  .page-off-season .sticky-cta .btn-blue,
+  .page-off-season .sticky-cta .btn-blue-outline,
+  .page-off-season .sticky-cta .sticky-cta__link,
+  .page-off-season .price-join {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+  .page-off-season .offseason-cta__coach-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .page-off-season .offseason-waitlist__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .page-off-season .offseason-waitlist input[type="email"] {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+  .page-off-season .sticky-cta__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .page-off-season .sticky-cta .cta-or {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .story-quotes--carousel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    touch-action: pan-y;
+  }
+  /* One slide only — display:none avoids opacity:!important / crossfade overlap from motion CSS */
+  .story-quotes--carousel > .story-quote {
+    display: none;
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
+  .story-quotes--carousel > .story-quote.is-active {
+    display: grid;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Kill scroll-reveal on carousel slides; navigate uses is-animating instead */
+  html.rs-motion .story-quotes--carousel > [data-rs-motion="quote"]:not(.is-animating) .story-quote__photo {
+    clip-path: none !important;
+    animation: none !important;
+  }
+  html.rs-motion .story-quotes--carousel > [data-rs-motion="quote"]:not(.is-animating) .story-quote__text {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .story-quotes--carousel > .story-quote.is-active.is-animating .story-quote__photo {
+    animation: rs-wipe-ltr 0.65s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+  }
+  .story-quotes--carousel > .story-quote.is-active.is-animating.story-quote--flip .story-quote__photo {
+    animation-name: rs-wipe-rtl !important;
+  }
+  .story-quotes--carousel > .story-quote.is-active.is-animating .story-quote__text {
+    animation: rs-fade-slide-right 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both !important;
+  }
+  .story-quotes--carousel > .story-quote.is-active.is-animating.story-quote--flip .story-quote__text {
+    animation-name: rs-fade-slide-left !important;
+  }
+  .story-quotes--carousel .story-quotes__nav {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .story-quotes--carousel > .story-quote.is-active.is-animating .story-quote__photo,
+  .story-quotes--carousel > .story-quote.is-active.is-animating .story-quote__text {
+    animation: none !important;
+  }
+}
+
+/* Sticky waitlist variant — Still Racing email signup in sticky bar */
+.page-off-season-sticky-waitlist .sticky-cta--waitlist .sticky-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  max-width: min(960px, 100%);
+}
+.page-off-season-sticky-waitlist .sticky-cta__waitlist-text {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0 10px;
+  min-width: 0;
+}
+.page-off-season-sticky-waitlist .sticky-cta__waitlist-heading {
+  margin: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: 17px;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+.page-off-season-sticky-waitlist .sticky-cta__waitlist-copy {
+  margin: 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.86);
+  text-align: center;
+}
+.page-off-season-sticky-waitlist .sticky-cta__waitlist {
+  margin: 16px 0 0;
+  width: 100%;
+}
+.page-off-season-sticky-waitlist .sticky-cta__waitlist .offseason-waitlist__row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 0;
+  justify-content: center;
+  width: 100%;
+}
+.page-off-season-sticky-waitlist .sticky-cta__waitlist input[type="email"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: none;
+  font-family: "Bornia-Medium", serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.page-off-season-sticky-waitlist .sticky-cta__waitlist .btn-blue {
+  flex: 0 0 auto;
+  margin-top: 0;
+  padding: 14px 20px;
+  font-family: "Bornia-Bold", serif;
+  font-size: 17px;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+@media (min-width: 1025px) {
+  .page-off-season-sticky-waitlist .sticky-cta--waitlist .sticky-cta__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px 28px;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist-text {
+    flex: 1 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 10px;
+    max-width: 36rem;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist-heading,
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist-copy {
+    text-align: left;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist-copy {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist {
+    margin: 0;
+    flex: 0 1 auto;
+    width: auto;
+    max-width: none;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist .offseason-waitlist__row {
+    justify-content: flex-end;
+    width: auto;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist input[type="email"] {
+    flex: 0 1 240px;
+    width: 240px;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}
+@media (max-width: 1024px) {
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .page-off-season-sticky-waitlist .sticky-cta--waitlist {
+    padding-top: 20px;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist-text {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 8px;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist .offseason-waitlist__row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist input[type="email"] {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    padding: 12px 12px;
+    font-size: 16px;
+  }
+  .page-off-season-sticky-waitlist .sticky-cta__waitlist .btn-blue {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    padding: 12px 14px;
+    white-space: nowrap;
+  }
+}
+
+/* Waitlist variant — Max section: teal gradient + pattern, white type */
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: var(--pp-pattern-grad);
+  padding: clamp(36px, 6vh, 64px) 24px;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--pp-pattern-tile);
+  background-repeat: repeat;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner {
+  position: relative;
+  z-index: 1;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__inner--max-split .offseason-cta {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+  text-align: left;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__intro .heading,
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__intro .lead,
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .offseason-cta__coach {
+  color: #fff;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__intro .heading::after {
+  background: #fff;
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__cta .btn-blue-outline {
+  color: var(--pp-blue);
+  border-color: var(--pp-blue);
+}
+.page-off-season-sticky-waitlist [data-pp-block="max-video"] .walkthrough__cta .btn-blue-outline:hover {
+  background: var(--pp-blue);
+  color: #fff;
+}
+
+/* Waitlist variant — Matt section: teal+pattern below video; keep hero overlap */
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] {
+  background: transparent;
+  color: #fff;
+  overflow: visible;
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"]::before,
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Align with hero bottom (≈ |margin-top| overlap) — no white strip under video */
+  top: clamp(72px, 14vh, 110px);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"]::before {
+  background: var(--pp-pattern-grad);
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"]::after {
+  background-image: var(--pp-pattern-tile);
+  background-repeat: repeat;
+  opacity: 0.4;
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__inner {
+  position: relative;
+  z-index: 1;
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__caption,
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .offseason-cta__coach {
+  color: rgba(255, 255, 255, 0.9);
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta {
+  margin-top: 32px;
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .cta-stack--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 16px;
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .cta-stack--row .btn-blue,
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .cta-stack--row .btn-blue-outline {
+  margin-top: 0;
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .btn-blue-outline {
+  color: var(--pp-blue);
+  border-color: var(--pp-blue);
+}
+.page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .btn-blue-outline:hover {
+  background: var(--pp-blue);
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .cta-stack--row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .cta-stack--row .btn-blue,
+  .page-off-season-sticky-waitlist [data-pp-block="matt-video"] .walkthrough__cta .cta-stack--row .btn-blue-outline {
+    width: auto;
+    flex: 1 1 auto;
+  }
+  .page-off-season-sticky-waitlist [data-pp-block="matt-video"]::before,
+  .page-off-season-sticky-waitlist [data-pp-block="matt-video"]::after {
+    top: clamp(56px, 12vh, 90px);
+  }
+}

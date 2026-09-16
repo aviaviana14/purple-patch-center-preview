@@ -2,12 +2,23 @@
    Shared Tri Squad type, photos, value-rows, coaches, and quotes come from
    pp-mockup-refined.css + pp-mockup-vertical.css. */
 
+html:has(.page-performance-center) {
+  overflow-x: clip;
+}
 .page-refined.page-performance-center {
   --pp-header-offset: 120px;
   --center-rule: rgba(26, 26, 26, 0.1);
+  --pp-fs-hero: 80px;
+  --pp-fs-display: 64px;
+  --pp-fs-title: 40px;
+  --pp-fs-subhead: 36px;
+  --pp-fs-subtitle: 32px;
+  --pp-fs-body: 20px;
+  --pp-fs-small: 16px;
   background: #fff;
   font-family: "Bornia-Medium", serif;
   padding-bottom: 0;
+  overflow-x: clip;
 }
 .page-refined.page-performance-center,
 .page-refined.page-performance-center p,
@@ -27,13 +38,52 @@
 .page-refined.page-performance-center .hero.hero--live h1 {
   font-family: "Bornia-Black", serif;
 }
+.page-refined.page-performance-center h1,
+.page-refined.page-performance-center h2,
+.page-refined.page-performance-center .heading {
+  text-transform: uppercase;
+}
+.page-refined.page-performance-center h3,
+.page-refined.page-performance-center .center-banner__kicker,
+.page-refined.page-performance-center .center-manifesto__kicker,
+.page-refined.page-performance-center .center-manifesto__sub,
+.page-refined.page-performance-center .class-flip__back p,
+.page-refined.page-performance-center .hero .sub,
+.page-refined.page-performance-center .center-subhead {
+  text-transform: none;
+}
+.page-refined.page-performance-center h2,
+.page-refined.page-performance-center h3,
+.page-refined.page-performance-center .heading,
+.page-refined.page-performance-center .center-banner__kicker,
+.page-refined.page-performance-center .center-manifesto__kicker,
+.page-refined.page-performance-center .center-manifesto__sub,
+.page-refined.page-performance-center .center-subhead {
+  text-align: center;
+}
+.page-refined.page-performance-center .center-subhead,
+.page-refined.page-performance-center .class-flip__front h3,
+.page-refined.page-performance-center .class-flip__back h3,
+.page-refined.page-performance-center .center-offerings h3 {
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-subhead, 36px);
+  line-height: 1.3;
+}
 .page-refined.page-performance-center h3,
 .page-refined.page-performance-center h4,
 .page-refined.page-performance-center .class-flip__back p,
 .page-refined.page-performance-center .coach-card__name,
 .page-refined.page-performance-center .coach-card__title,
-.page-refined.page-performance-center .value-rows__copy h3 {
+.page-refined.page-performance-center .value-rows__copy h3,
+.page-refined.page-performance-center .center-banner__kicker,
+.page-refined.page-performance-center .center-manifesto__kicker,
+.page-refined.page-performance-center .center-manifesto__sub {
   font-family: "Bornia-Bold", serif;
+}
+.page-refined.page-performance-center .footer-links-grid h3 {
+  text-align: left;
+  font-size: 14px;
+  letter-spacing: 0.08em;
 }
 .page-refined.page-performance-center [id] {
   scroll-margin-top: 24px;
@@ -333,6 +383,9 @@ html.center-menu-open body {
 .page-refined.page-performance-center .hero.hero--live h1 {
   max-width: none;
   width: 100%;
+  font-size: var(--pp-fs-hero, 80px);
+  line-height: 1.05;
+  text-transform: uppercase;
 }
 .page-refined.page-performance-center .sticky-cta {
   display: none !important;
@@ -944,7 +997,7 @@ html.center-booking-open body {
   overflow: hidden;
   height: min(92vh, 920px);
   min-height: min(92vh, 920px);
-  padding: 0;
+  padding: 12px 0;
   color: var(--pp-ink);
   background-color: #fff;
   background-image: var(--pp-pattern-light);
@@ -994,21 +1047,23 @@ html.center-booking-open body {
   font-style: italic;
   color: var(--pp-ink);
 }
-.page-refined.page-performance-center .center-banner--columns .center-banner__term {
-  font-family: "Bornia-Black", serif;
-  font-size: var(--pp-fs-display, clamp(28px, 3.6vw, 48px));
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: var(--pp-ink);
-  margin: 0 0 8px;
-}
+.page-refined.page-performance-center .center-banner--columns .center-banner__lemma,
+.page-refined.page-performance-center .center-banner--columns .center-banner__term,
 .page-refined.page-performance-center .center-banner--columns .center-banner__def,
 .page-refined.page-performance-center .center-banner--columns .center-banner__def em {
-  font-family: "Bornia-Bold", serif;
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: var(--pp-ink);
+}
+.page-refined.page-performance-center .center-banner--columns .center-banner__lemma,
+.page-refined.page-performance-center .center-banner--columns .center-banner__term {
   font-style: italic;
-  font-size: var(--pp-fs-title, 32px);
-  line-height: 1.2;
-  color: var(--pp-blue);
+}
+.page-refined.page-performance-center .center-banner--columns .center-banner__term,
+.page-refined.page-performance-center .center-banner--columns .center-banner__term em {
+  font-family: "Bornia-Bold", serif;
 }
 .page-refined.page-performance-center .center-banner__rail {
   height: 100%;
@@ -1019,27 +1074,23 @@ html.center-booking-open body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  will-change: transform;
-  margin-top: -40px;
-}
-.page-refined.page-performance-center .center-banner__track--up {
-  animation: center-col-up 42s linear infinite;
-}
-.page-refined.page-performance-center .center-banner__track--down {
-  animation: center-col-down 42s linear infinite;
+  height: 100%;
+  margin-top: 0;
+  animation: none;
+  will-change: auto;
 }
 .page-refined.page-performance-center .center-banner__photo {
   margin: 0;
   border-radius: var(--pp-photo-radius, 16px);
   overflow: hidden;
   background: #eceae6;
-  flex-shrink: 0;
+  flex: 1 1 0;
+  min-height: 0;
 }
 .page-refined.page-performance-center .center-banner__photo img {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
 }
 .page-refined.page-performance-center .center-banner__photo--right img,
@@ -1085,11 +1136,13 @@ html.center-booking-open body {
   margin-bottom: 28px;
 }
 .page-refined.page-performance-center h2.heading.heading--figma {
-  text-transform: none;
+  text-transform: uppercase;
+  text-align: center;
   max-width: none;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
   margin-bottom: 20px;
+  font-size: var(--pp-fs-display, 64px);
 }
 .page-refined.page-performance-center h2.heading.heading--figma::after {
   display: none;
@@ -1099,30 +1152,59 @@ html.center-booking-open body {
 }
 .page-refined.page-performance-center .center-banner__kicker {
   margin: 16px 0 0;
-  font-family: "Bornia-Medium", serif;
-  font-size: var(--pp-fs-body, 20px);
-  line-height: 1.6;
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-subhead, 36px);
+  line-height: 1.25;
   text-align: center;
+  text-transform: none;
   color: var(--pp-ink);
 }
 .page-refined.page-performance-center .center-banner__define {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
+  align-items: flex-start;
+  align-self: center;
+  gap: 4px;
   width: 100%;
-  max-width: none;
-  margin: 36px auto 0;
-  padding: 20px 0 0;
+  max-width: 42rem;
+  margin: 72px auto 0;
+  padding: 0;
   border: 0;
-  text-align: center;
+  text-align: left;
 }
 .page-refined.page-performance-center .center-banner__define::before {
-  margin: 0 auto 60px;
+  display: none;
+}
+.page-refined.page-performance-center .center-banner__lemma {
+  margin: 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  font-style: italic;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--pp-ink);
+  text-transform: none;
 }
 .page-refined.page-performance-center .center-banner__def {
+  margin: 0;
+  width: 100%;
   max-width: none;
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--pp-ink);
+  text-align: left;
+}
+.page-refined.page-performance-center .center-banner__term,
+.page-refined.page-performance-center .center-banner__term em {
+  font-family: "Bornia-Bold", serif;
+  font-size: inherit;
+  font-style: italic;
+  letter-spacing: 0;
+  color: inherit;
+  white-space: normal;
 }
 .page-refined .center-banner__define::before {
   content: "";
@@ -1315,9 +1397,71 @@ html.center-booking-open body {
   line-height: 1.4;
   color: var(--pp-ink);
 }
-.page-refined .class-flip__back .btn-blue {
-  margin-top: 16px;
-  align-self: flex-start;
+.page-refined.page-performance-center .class-flip {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.page-refined.page-performance-center .class-flip__inner {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.page-refined.page-performance-center .class-flip__front {
+  position: absolute;
+  inset: 0;
+}
+.page-refined.page-performance-center .class-flip__back {
+  position: relative;
+  inset: auto;
+  flex: 1 1 auto;
+  min-height: 100%;
+  padding: 32px 22px 28px;
+}
+.page-refined.page-performance-center .class-flip__front h3 {
+  left: 20px;
+  right: 20px;
+  text-align: center;
+  font-size: var(--pp-fs-subhead, 36px);
+  text-transform: none;
+}
+.page-refined.page-performance-center .class-flip__back h3 {
+  text-align: center;
+  max-width: min(26rem, 80%);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: var(--pp-fs-subhead, 36px);
+  text-transform: none;
+}
+.page-refined.page-performance-center .class-flip__back p {
+  text-align: center;
+  max-width: min(26rem, 80%);
+  margin: 0 auto 28px;
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.6;
+  text-transform: none;
+  color: var(--pp-ink);
+}
+.page-refined.page-performance-center .class-flip__back ul {
+  list-style: disc;
+  margin: 0 0 16px;
+  padding-left: 1.25em;
+}
+.page-refined.page-performance-center .class-flip__back li {
+  padding: 4px 0;
+  border-top: 0;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.6;
+}
+.page-refined.page-performance-center .class-flip__back .btn-blue {
+  margin-top: auto;
+  align-self: center;
+}
+.page-refined.page-performance-center #class-hyrox .class-flip__front img {
+  object-position: 32% center;
 }
 
 /* ——— Transformative results manifesto (not stats pills) ——— */
@@ -1375,17 +1519,39 @@ html.center-booking-open body {
 }
 
 .page-refined.page-performance-center .coach-film__header .heading.heading--figma::after {
-  display: block;
-  margin-left: 0;
-  margin-right: auto;
+  display: none;
 }
 .page-refined.page-performance-center .coach-film__header .lead {
   max-width: none;
   width: 100%;
+  text-align: center;
+}
+.page-refined.page-performance-center .coach-film__track {
+  gap: 20px;
 }
 .page-refined.page-performance-center .coach-film .coach-card {
   background: transparent;
   overflow: hidden;
+}
+.page-refined.page-performance-center .coach-card__name {
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.page-refined.page-performance-center .coach-card__title,
+.page-refined.page-performance-center .coach-film .coach-card__title {
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.2;
+  text-transform: none;
+}
+.page-refined.page-performance-center .coach-card__bio,
+.page-refined.page-performance-center .coach-film .coach-card__bio {
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.4;
 }
 .page-refined.page-performance-center .coach-film .coach-card img {
   width: 100%;
@@ -1398,7 +1564,7 @@ html.center-booking-open body {
   aspect-ratio: 2 / 3;
   background: #24292f;
 }
-.page-refined.page-performance-center .scroll-scene--quotes .story-quote__text h4 {
+.page-refined.page-performance-center .center-manifesto .story-quote__text h4 {
   display: none;
 }
 .page-refined.page-performance-center .value-rows {
@@ -1544,17 +1710,26 @@ html.center-booking-open body {
   max-width: none;
   width: 100%;
 }
-.page-refined.page-performance-center .center-classes__intro .lead {
-  width: 50%;
-  max-width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+.page-refined.page-performance-center .lead.center-subhead,
+.page-refined.page-performance-center .center-classes__intro .lead.center-subhead,
+.page-refined.page-performance-center .class-flips__after.center-subhead {
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-subhead, 36px);
+  line-height: 1.3;
+  text-transform: none;
 }
-.page-refined.page-performance-center .class-flips__after {
-  width: 72%;
-  max-width: 72%;
-  margin-left: auto;
-  margin-right: auto;
+.page-refined.page-performance-center .center-classes__intro,
+.page-refined.page-performance-center .center-classes__intro .lead,
+.page-refined.page-performance-center .class-flips__after,
+.page-refined.page-performance-center .center-attention .lead,
+.page-refined.page-performance-center .center-offerings .lead,
+.page-refined.page-performance-center .center-manifesto .heading,
+.page-refined.page-performance-center .center-manifesto .lead,
+.page-refined.page-performance-center .center-manifesto .center-subhead,
+.page-refined.page-performance-center .coach-film__header .heading,
+.page-refined.page-performance-center .value-rows .heading {
+  width: 100%;
+  max-width: none;
 }
 .page-refined.page-performance-center.page-tri-squad-overlap .results-closing {
   --pp-cta-photo-band-overlap: 0.86;
@@ -1683,11 +1858,15 @@ html.center-booking-open body {
 .page-refined.page-performance-center .hero.hero--live h1 {
   max-width: none;
   width: 100%;
+  font-size: var(--pp-fs-hero, 80px);
+  line-height: 1.05;
   color: var(--pp-on-dark);
 }
 .page-refined.page-performance-center .hero.hero--figma .sub,
 .page-refined.page-performance-center .hero.hero--live .sub {
   font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-title, 40px);
+  text-transform: none;
   color: #fff;
   opacity: 1;
   max-width: 75%;
@@ -1760,30 +1939,23 @@ html.center-booking-open body {
 .page-refined.page-performance-center .center-attention__photos {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
   gap: 20px;
   min-height: 424px;
 }
 .page-refined.page-performance-center .center-attention__photos > img {
   width: 100%;
   height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.page-refined.page-performance-center .center-attention__photos > img:first-child {
+  grid-row: 1 / span 2;
   min-height: 424px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
 }
-.page-refined.page-performance-center .center-attention__photos > div {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
-}
-.page-refined.page-performance-center .center-attention__photos > div img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-}
-.page-refined.page-performance-center .center-attention__photos > div img:last-child {
+.page-refined.page-performance-center .center-attention__photos > img:last-child {
   object-position: center 30%;
 }
 .page-refined.page-performance-center .center-attention__points {
@@ -1851,12 +2023,20 @@ html.center-booking-open body {
 .page-refined.page-performance-center .center-offerings h3 {
   margin: 16px 0 0;
   font-family: "Bornia-Bold", serif;
-  font-size: var(--pp-fs-title, 32px);
+  font-size: var(--pp-fs-subhead, 36px);
+  text-align: center;
+  text-transform: none;
   color: var(--pp-on-dark);
 }
 .page-refined.page-performance-center .center-manifesto--figma {
   background: #24292f;
   color: var(--pp-on-dark);
+  overflow-x: clip;
+}
+.page-refined.page-performance-center .center-manifesto .story-quotes,
+.page-refined.page-performance-center .center-manifesto .story-quote {
+  max-width: 100%;
+  min-width: 0;
 }
 .page-refined.page-performance-center .center-manifesto--figma .heading {
   color: var(--pp-on-dark);
@@ -1867,15 +2047,35 @@ html.center-booking-open body {
 .page-refined.page-performance-center .center-manifesto--figma .lead em {
   font-style: italic;
 }
-.page-refined.page-performance-center .center-manifesto__kicker {
-  margin: 40px 0 0;
-  width: 100%;
-  max-width: none;
-  text-align: center;
-  font-family: "Bornia-Bold", serif;
-  font-size: var(--pp-fs-title, 32px);
-  line-height: 1.2;
-  color: var(--pp-blue);
+.page-refined.page-performance-center .center-manifesto .story-quotes + .heading {
+  margin-top: 8px;
+  color: var(--pp-on-dark);
+}
+.page-refined.page-performance-center .center-manifesto__sub {
+  margin: 0 0 28px;
+  font-size: var(--pp-fs-subhead, 36px);
+  line-height: 1.25;
+  text-transform: none;
+  color: var(--pp-on-dark);
+}
+.page-refined.page-performance-center .center-manifesto .story-quotes {
+  margin-top: 0;
+  margin-bottom: clamp(48px, 7vh, 80px);
+}
+.page-refined.page-performance-center .center-manifesto .story-quote__text {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.page-refined.page-performance-center .center-manifesto .story-quote blockquote {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.6;
+  color: var(--pp-on-dark);
+}
+.page-refined.page-performance-center .center-manifesto .story-quote blockquote::before {
+  display: none;
 }
 .page-refined.page-performance-center .center-manifesto__cards {
   display: grid;
@@ -1898,6 +2098,7 @@ html.center-booking-open body {
   align-items: center;
 }
 .page-refined.page-performance-center .surface--footer-links {
+  background: #151515;
   padding: 50px 20px;
 }
 .page-refined.page-performance-center .footer-links-grid {
@@ -1934,6 +2135,13 @@ html.center-booking-open body {
 }
 
 @media (max-width: 1024px) {
+  .page-refined.page-performance-center {
+    --pp-fs-hero: clamp(40px, 9vw, 64px);
+    --pp-fs-display: clamp(32px, 5.5vw, 48px);
+    --pp-fs-title: clamp(24px, 3.4vw, 32px);
+    --pp-fs-subhead: clamp(24px, 3.6vw, 32px);
+    --pp-fs-subtitle: clamp(20px, 2.8vw, 28px);
+  }
   .page-refined.page-performance-center .surface--footer-links {
     padding: 50px 30px;
   }
@@ -1945,7 +2153,7 @@ html.center-booking-open body {
     height: auto;
     min-height: 0;
     overflow: visible;
-    padding: clamp(64px, 10vh, 96px) 0 0;
+    padding: clamp(64px, 10vh, 96px) 0 12px;
   }
   .page-refined.page-performance-center .center-banner__columns {
     display: block;
@@ -1957,6 +2165,29 @@ html.center-booking-open body {
   }
   .page-refined.page-performance-center .center-banner--columns .tb-photo-carousel {
     margin-top: clamp(48px, 8vh, 72px);
+    padding: 0 12px;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .page-refined.page-performance-center .tb-photo-carousel__slide {
+    flex: none;
+    width: 100%;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #eceae6;
+  }
+  .page-refined.page-performance-center .tb-photo-carousel__slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .page-refined.page-performance-center #class-hyrox .class-flip__front img {
+    object-position: 32% center;
   }
   .page-refined .center-services__grid,
   .page-refined .class-flips,
@@ -1969,9 +2200,16 @@ html.center-booking-open body {
   .page-refined .value-rows__row--banner {
     grid-template-columns: 1fr;
   }
+  .page-refined.page-performance-center .value-rows {
+    overflow-x: clip;
+  }
   .page-refined.page-performance-center .center-masonry {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(96px, 12vw)) auto;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
   .page-refined.page-performance-center .center-masonry__hero {
     grid-column: 3 / span 2;
@@ -2051,15 +2289,23 @@ html.center-booking-open body {
     border-top: 1px solid rgba(255, 255, 255, 0.14);
   }
   .page-refined.page-performance-center .center-offerings h3 {
-    font-size: var(--pp-fs-subtitle, 24px);
+    font-size: var(--pp-fs-subhead, 36px);
   }
-  .page-refined.page-performance-center .center-attention__layout,
-  .page-refined.page-performance-center .center-attention__photos {
+  .page-refined.page-performance-center .center-attention__layout {
     grid-template-columns: 1fr;
-    min-height: 0;
   }
-  .page-refined.page-performance-center .center-attention__photos > img {
-    min-height: 280px;
+  .page-refined.page-performance-center .center-attention__photos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto;
+    min-height: 0;
+    gap: 12px;
+  }
+  .page-refined.page-performance-center .center-attention__photos > img,
+  .page-refined.page-performance-center .center-attention__photos > img:first-child {
+    grid-row: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    height: auto;
   }
   .page-refined.page-performance-center.page-tri-squad-overlap .results-closing__band,
   .page-refined.page-performance-center.page-tri-squad-overlap .results-closing__band.closing-cta {
@@ -2100,7 +2346,25 @@ html.center-booking-open body {
     box-sizing: border-box;
   }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-refined.page-performance-center .tb-photo-carousel__track,
+  .page-refined.page-performance-center .tb-photo-carousel__track.is-marquee {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100% !important;
+    max-width: none;
+    animation: none !important;
+    transform: none !important;
+  }
+  .page-refined.page-performance-center .tb-photo-carousel__slide--clone {
+    display: none !important;
+  }
+}
 @media (min-width: 1025px) {
+  .page-refined.page-performance-center .center-banner--columns .tb-photo-carousel {
+    display: none !important;
+  }
   .page-refined.page-performance-center.page-tri-squad-overlap .results-closing__pitch-lead,
   .page-refined.page-performance-center.page-tri-squad-overlap .closing-cta__lead.results-closing__pitch-lead {
     font-size: clamp(28px, 3.4vw, 42px);
@@ -2125,6 +2389,10 @@ html.center-booking-open body {
     gap: 12px;
     grid-template-columns: none;
     grid-template-rows: none;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
   .page-refined.page-performance-center .center-masonry__hero {
     grid-column: auto;
@@ -2133,6 +2401,7 @@ html.center-booking-open body {
     aspect-ratio: 4 / 5;
     max-height: 62vh;
     height: auto;
+    border-radius: 0;
   }
   .page-refined.page-performance-center .center-masonry__hero figcaption {
     display: none;
@@ -2177,6 +2446,33 @@ html.center-booking-open body {
   .page-refined .center-manifesto__grid {
     grid-template-columns: 1fr;
   }
+  .page-refined.page-performance-center .class-flips {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 24px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    padding: 4px 24px 8px;
+    margin-left: -24px;
+    margin-right: -24px;
+    width: calc(100% + 48px);
+    scrollbar-width: none;
+  }
+  .page-refined.page-performance-center .class-flips::-webkit-scrollbar {
+    display: none;
+  }
+  .page-refined.page-performance-center .class-flip {
+    flex: 0 0 min(82vw, 360px);
+    width: min(82vw, 360px);
+    scroll-snap-align: start;
+    min-height: 460px;
+  }
+  .page-refined.page-performance-center .class-flip__inner {
+    min-height: 460px;
+  }
   .page-refined .center-manifesto__grid article {
     border-right: 0;
     border-bottom: 1px solid var(--center-rule);
@@ -2202,8 +2498,51 @@ html.center-booking-open body {
   .page-refined .center-attention__layout {
     grid-template-columns: 1fr;
   }
+  .page-refined.page-performance-center .center-banner--columns .tb-photo-carousel {
+    padding: 0 0 0 12px;
+    overflow: hidden;
+  }
+  .page-refined.page-performance-center .tb-photo-carousel__track,
+  .page-refined.page-performance-center .tb-photo-carousel__track.is-marquee {
+    display: flex !important;
+    grid-template-columns: none;
+    gap: 12px;
+    width: max-content !important;
+    animation: center-masonry-marquee var(--nl-marquee-duration, 18s) linear infinite !important;
+  }
+  .page-refined.page-performance-center .tb-photo-carousel__slide {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  .page-refined.page-performance-center .tb-photo-carousel__slide--clone {
+    display: block !important;
+  }
+  .page-refined.page-performance-center .tb-photo-carousel__slide img {
+    width: auto;
+    height: min(56vw, 220px);
+    aspect-ratio: auto;
+  }
+  .page-refined.page-performance-center .center-attention__photos {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 280px;
+  }
+  .page-refined.page-performance-center .center-attention__photos > img,
+  .page-refined.page-performance-center .center-attention__photos > img:first-child {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    aspect-ratio: 4 / 3;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .page-refined.page-performance-center .center-attention__photos > img.is-active {
+    opacity: 1;
+    z-index: 1;
+  }
   .page-refined.page-performance-center .center-offerings h3 {
-    font-size: var(--pp-fs-body, 20px);
+    font-size: var(--pp-fs-subhead, 36px);
   }
 }
 

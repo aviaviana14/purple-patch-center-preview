@@ -1,0 +1,704 @@
+/* Performance Center design style guide — standalone, not linked from the Center page. */
+
+.sg {
+  --pp-pattern-tile: url("https://squad.purplepatchfitness.com/wp-content/uploads/2025/08/Testimonials-1-scaled.png");
+  --pp-photo-radius: 16px;
+  --sg-max: 1120px;
+  --sg-toc: 220px;
+  --sg-rule: rgba(26, 26, 26, 0.1);
+  background: #fff;
+  color: var(--pp-ink);
+  font-family: "Bornia-Medium", serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.sg *,
+.sg *::before,
+.sg *::after {
+  box-sizing: border-box;
+}
+
+.sg a {
+  color: var(--pp-blue);
+}
+
+.sg-skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+}
+
+.sg-skip:focus {
+  left: 16px;
+  top: 16px;
+  z-index: 20;
+  background: #fff;
+  padding: 8px 12px;
+}
+
+.sg-header {
+  position: relative;
+  overflow: hidden;
+  background: var(--pp-pattern-grad);
+  color: #fff;
+  padding: 36px 24px 48px;
+}
+
+.sg-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--pp-pattern-tile);
+  background-repeat: repeat;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.sg-header__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--sg-max);
+  margin: 0 auto;
+}
+
+.sg-header img {
+  display: block;
+  height: 48px;
+  width: auto;
+  margin-bottom: 28px;
+}
+
+.sg-kicker {
+  margin: 0 0 8px;
+  font-family: "Bornia-Bold", serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.sg-header h1 {
+  margin: 0 0 12px;
+  font-family: "Bornia-Black", serif;
+  font-size: clamp(32px, 5.5vw, 48px);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.sg-header p {
+  margin: 0;
+  max-width: 62ch;
+  color: #fff;
+}
+
+.sg-shell {
+  display: grid;
+  grid-template-columns: var(--sg-toc) minmax(0, 1fr);
+  gap: 48px;
+  max-width: calc(var(--sg-max) + var(--sg-toc) + 48px);
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  align-items: start;
+}
+
+.sg-toc {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.sg-toc a {
+  font-family: "Bornia-Bold", serif;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--pp-muted);
+}
+
+.sg-toc a:hover,
+.sg-toc a:focus {
+  color: var(--pp-blue);
+}
+
+.sg-main {
+  min-width: 0;
+}
+
+.sg-main > section {
+  padding: 56px 0;
+  border-top: 1px solid var(--sg-rule);
+}
+
+.sg-main > section:first-child {
+  padding-top: 8px;
+  border-top: 0;
+}
+
+.sg-main h2 {
+  margin: 0 0 12px;
+  font-family: "Bornia-Black", serif;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.sg-main h3 {
+  margin: 32px 0 12px;
+  font-family: "Bornia-Bold", serif;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.sg-lede,
+.sg-note {
+  color: var(--pp-muted);
+  max-width: 68ch;
+}
+
+.sg-note {
+  font-size: 16px;
+}
+
+.sg-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.sg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.sg-table th,
+.sg-table td {
+  padding: 12px 14px 12px 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--sg-rule);
+}
+
+.sg-table th {
+  font-family: "Bornia-Bold", serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pp-muted);
+  white-space: nowrap;
+}
+
+.sg-table code,
+.sg-token {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.sg-sample {
+  margin: 20px 0 0;
+  padding: 28px 24px;
+  background: #f8f7f5;
+  border-radius: 10px;
+}
+
+.sg-sample--dark {
+  background: #151515;
+  color: #fff;
+}
+
+.sg-sample--teal {
+  position: relative;
+  overflow: hidden;
+  background: var(--pp-pattern-grad);
+  color: #fff;
+}
+
+.sg-sample--teal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--pp-pattern-tile);
+  background-repeat: repeat;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.sg-sample--teal > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sg-sample--hero {
+  background: #111;
+  color: #fff;
+}
+
+.sg-type-hero {
+  margin: 0;
+  font-family: "Bornia-Black", serif;
+  font-size: var(--pp-fs-hero, 80px);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.sg-type-display {
+  margin: 0;
+  font-family: "Bornia-Black", serif;
+  font-size: var(--pp-fs-display, 64px);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sg-type-title {
+  margin: 16px 0 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-title, 40px);
+  line-height: 1.25;
+}
+
+.sg-type-subhead {
+  margin: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: var(--pp-fs-subhead, 36px);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.sg-type-body {
+  margin: 16px 0 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  line-height: 1.6;
+}
+
+.sg-type-quote {
+  margin: 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: var(--pp-fs-body, 20px);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.sg-type-small {
+  margin: 12px 0 0;
+  font-size: var(--pp-fs-small, 16px);
+}
+
+.sg-type-nav {
+  margin: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sg-type-utility {
+  margin: 8px 0 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: 16px;
+}
+
+.sg-type-hyrox {
+  margin: 8px 0 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--pp-blue);
+  text-align: center;
+}
+
+.sg-type-coach {
+  margin: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sg-type-coach-role {
+  margin: 4px 0 0;
+  font-family: "Bornia-Medium", serif;
+  font-size: 20px;
+}
+
+.sg-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.sg-swatch {
+  border: 1px solid var(--sg-rule);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.sg-swatch__chip {
+  height: 88px;
+}
+
+.sg-swatch__meta {
+  padding: 12px 14px 14px;
+}
+
+.sg-swatch__meta strong {
+  display: block;
+  font-family: "Bornia-Bold", serif;
+  font-size: 16px;
+}
+
+.sg-swatch__meta span {
+  display: block;
+  font-size: 14px;
+  color: var(--pp-muted);
+}
+
+.sg-patterns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.sg-pattern {
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sg-pattern > span {
+  position: relative;
+  z-index: 1;
+  padding: 16px 18px;
+  font-family: "Bornia-Bold", serif;
+  font-size: 16px;
+}
+
+.sg-pattern--teal {
+  background: var(--pp-pattern-grad);
+  color: #fff;
+}
+
+.sg-pattern--teal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--pp-pattern-tile);
+  background-repeat: repeat;
+  opacity: 0.4;
+}
+
+.sg-pattern--light {
+  background-color: #fff;
+  background-image: var(--pp-pattern-light);
+  background-repeat: repeat;
+  background-size: 100% auto;
+  color: var(--pp-ink);
+  border: 1px solid var(--sg-rule);
+}
+
+.sg-pattern--dark {
+  background: #151515;
+  color: #fff;
+}
+
+.sg-pattern--none {
+  background: #fff;
+  color: var(--pp-ink);
+  border: 1px solid var(--sg-rule);
+}
+
+.sg-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.sg-btns .btn-blue {
+  margin-top: 0;
+  background: var(--pp-blue);
+  border: none;
+  border-image: none;
+  backdrop-filter: none;
+  color: #fff;
+}
+
+.sg-btns .btn-blue:hover {
+  background: var(--pp-blue-deep);
+  filter: none;
+}
+
+.sg-btns .btn-blue-outline {
+  background: transparent;
+  border: 2px solid var(--pp-blue);
+  color: var(--pp-blue);
+}
+
+.sg-btns .btn-blue-outline:hover {
+  background: var(--pp-blue);
+  color: #fff;
+}
+
+.sg-space-row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr) 72px;
+  gap: 16px;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.sg-space-bar {
+  height: 12px;
+  background: var(--pp-blue);
+  border-radius: 2px;
+}
+
+.sg-nav-spec {
+  display: grid;
+  gap: 16px;
+}
+
+.sg-nav-mock {
+  background: #2a2a2a;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sg-nav-mock__top {
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.38);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.sg-nav-mock__main {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 24px;
+  background: rgba(0, 0, 0, 0.38);
+  font-family: "Bornia-Bold", serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sg-dl {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) minmax(0, 1fr);
+  gap: 8px 24px;
+  margin: 20px 0 0;
+  font-size: 16px;
+}
+
+.sg-dl dt {
+  font-family: "Bornia-Bold", serif;
+}
+
+.sg-dl dd {
+  margin: 0;
+  color: var(--pp-muted);
+}
+
+.sg-flip {
+  width: min(100%, 280px);
+  min-height: 360px;
+  perspective: 1400px;
+  cursor: pointer;
+  margin: 16px 0 0;
+}
+
+.sg-flip__inner {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sg-flip.is-flipped .sg-flip__inner {
+  transform: rotateY(180deg);
+}
+
+.sg-flip__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.sg-flip__front {
+  background: #111;
+}
+
+.sg-flip__front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sg-flip__front h3,
+.sg-flip__back h3 {
+  margin: 0;
+  font-family: "Bornia-Bold", serif;
+  font-size: 28px;
+}
+
+.sg-flip__front h3 {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 22px;
+  color: #fff;
+  text-align: center;
+}
+
+.sg-flip__back {
+  background: #fff;
+  color: var(--pp-ink);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.sg-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  color: #fff;
+}
+
+.sg-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: transparent;
+}
+
+.sg-dots button.is-active {
+  background: #fff;
+}
+
+.sg-photo-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.sg-photo-row img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.sg-radius-16 {
+  border-radius: 16px;
+}
+
+.sg-radius-10 {
+  border-radius: 10px;
+}
+
+.sg-radius-0 {
+  border-radius: 0;
+}
+
+.sg-caption {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--pp-muted);
+}
+
+.sg-do {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.sg-do article {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--sg-rule);
+}
+
+.sg-do h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.sg-do ul {
+  margin: 0;
+  padding-left: 1.1em;
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  .sg {
+    --pp-fs-hero: clamp(40px, 9vw, 64px);
+    --pp-fs-display: clamp(32px, 5.5vw, 48px);
+    --pp-fs-title: clamp(24px, 3.4vw, 32px);
+    --pp-fs-subhead: clamp(24px, 3.6vw, 32px);
+  }
+  .sg-shell {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .sg-toc {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--sg-rule);
+  }
+}
+
+@media (max-width: 767px) {
+  .sg-do,
+  .sg-photo-row,
+  .sg-dl {
+    grid-template-columns: 1fr;
+  }
+  .sg-nav-mock__top {
+    display: none;
+  }
+  .sg-header img {
+    height: 44px;
+  }
+}

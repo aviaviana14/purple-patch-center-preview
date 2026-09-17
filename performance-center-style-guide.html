@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Purple Patch Performance Center — Design style guide</title>
+  <meta name="description" content="Design system for the current Purple Patch Performance Center mockup: type, color, pattern, spacing, navigation, and interactions." />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="css/pp-mockup.css?v=123" />
+  <link rel="stylesheet" href="css/pp-style-guide.css?v=1" />
+</head>
+<body class="sg">
+  <a class="sg-skip" href="#content">Skip to content</a>
+  <header class="sg-header">
+    <div class="sg-header__inner">
+      <img src="images/performance-center/logo-center.png" alt="Purple Patch Center" width="220" height="56" />
+      <p class="sg-kicker">Internal reference · Current mockup · September 2026</p>
+      <h1>Performance Center style guide</h1>
+      <p>Tokens, type, color, pattern, spacing, chrome, and motion as they exist on the live Center page. This document is not linked from the Center mockup.</p>
+    </div>
+  </header>
+
+  <div class="sg-shell">
+    <nav class="sg-toc" aria-label="Style guide">
+      <a href="#type">Type</a>
+      <a href="#color">Color</a>
+      <a href="#pattern">Pattern</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#layout">Layout</a>
+      <a href="#navigation">Navigation</a>
+      <a href="#interactions">Interactions</a>
+      <a href="#photography">Photography</a>
+      <a href="#motion">Motion</a>
+      <a href="#rules">Rules</a>
+    </nav>
+
+    <main class="sg-main" id="content">
+      <section id="overview">
+        <h2>How to use this</h2>
+        <p class="sg-lede">This guide describes the current Center implementation, not an older Figma file. Copy samples are taken from the Center page. Beyond the requested type, color, pattern, interaction, spacing, and navigation notes, it also records buttons, layout breakpoints, photography radii, and motion — the details most likely to drift if someone rebuilds a section from memory.</p>
+      </section>
+
+      <section id="type">
+        <h2>Type</h2>
+        <p class="sg-lede">Bornia only: Medium, Bold, and Black. There is no Regular. Body copy is Medium; emphasis inside a sentence uses italic or Bold, never a fourth weight. Headings are Black and uppercase. Section subheads are Bold and sentence case.</p>
+
+        <div class="sg-table-wrap">
+          <table class="sg-table">
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>File</th>
+                <th>Size</th>
+                <th>Case / tracking</th>
+                <th>Line-height</th>
+                <th>Used for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hero</td>
+                <td>Black</td>
+                <td><code>--pp-fs-hero</code> 80px<br />≤1024: clamp(40–64)</td>
+                <td>Uppercase</td>
+                <td>1.05</td>
+                <td>Hero H1 only</td>
+              </tr>
+              <tr>
+                <td>Display</td>
+                <td>Black</td>
+                <td><code>--pp-fs-display</code> 64px<br />≤1024: clamp(32–48)</td>
+                <td>Uppercase · 0.04em</td>
+                <td>1.15</td>
+                <td>Section H2s</td>
+              </tr>
+              <tr>
+                <td>Title</td>
+                <td>Bold</td>
+                <td><code>--pp-fs-title</code> 40px<br />≤1024: clamp(24–32)</td>
+                <td>Sentence case</td>
+                <td>1.25</td>
+                <td>Hero supporting line</td>
+              </tr>
+              <tr>
+                <td>Subhead</td>
+                <td>Bold</td>
+                <td><code>--pp-fs-subhead</code> 36px<br />≤1024: clamp(24–32)</td>
+                <td>Sentence case</td>
+                <td>1.3</td>
+                <td>Section intros, class names, service names, kicker</td>
+              </tr>
+              <tr>
+                <td>Subtitle</td>
+                <td>Black</td>
+                <td><code>--pp-fs-subtitle</code> 32px</td>
+                <td>Sentence · 0.01em</td>
+                <td>1.2</td>
+                <td>Mobile menu group labels and top-level links</td>
+              </tr>
+              <tr>
+                <td>Body</td>
+                <td>Medium</td>
+                <td><code>--pp-fs-body</code> 20px</td>
+                <td>Sentence</td>
+                <td>1.6</td>
+                <td>Paragraphs, lists, bios, quotes, buttons</td>
+              </tr>
+              <tr>
+                <td>Small</td>
+                <td>Medium</td>
+                <td><code>--pp-fs-small</code> 16px</td>
+                <td>Sentence</td>
+                <td>1.3–1.4</td>
+                <td>Utility nav, dropdown items, masonry labels</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Hero</h3>
+        <div class="sg-sample sg-sample--hero">
+          <p class="sg-type-hero">Train Smarter.<br />Get Stronger.<br />Live Better.</p>
+          <p class="sg-type-title">A world-class training center and community for fitness, strength, and vitality.</p>
+        </div>
+        <p class="sg-note">Black 80 / Bold 40. White on photography. The supporting line stays sentence case and is not a heading.</p>
+
+        <h3>Section heading + subhead</h3>
+        <div class="sg-sample">
+          <p class="sg-type-display">Personal Attention For Better Results</p>
+          <p class="sg-type-subhead" style="margin-top:20px">At Purple Patch, you’re never a number. You’re an athlete, and our mission is to coach you towards your full potential so that you reap the greatest rewards — and have a lot of fun along the way.</p>
+        </div>
+        <p class="sg-note">Display headings are centered, uppercase, 0.04em tracking. Subheads are Bold 36, sentence case, full container width. Do not shrink a heading to force a single line — wrapping is allowed, as on “Born out of world-class sport”.</p>
+
+        <h3>Body</h3>
+        <div class="sg-sample">
+          <p class="sg-type-body" style="margin:0">Our state-of-the-art Performance Center offers an exciting new approach to fitness — one specifically designed to deliver life-changing (or as we like to call them, <em>Purple Patch*</em>) results.</p>
+          <p class="sg-type-body">Founded by Matt Dixon — world-renowned performance coach to IRONMAN champions, Olympic medalists, and high-performing executives — and Kelli McMaster…</p>
+        </div>
+        <p class="sg-note">Medium 20 / 1.6 / ink <code>#1a1a1a</code>. Do not use muted gray for body. Italic is for named terms and quotes, not for all emphasis. “Purple Patch” in running copy stays Medium unless it is the dictionary term, which is Bold italic.</p>
+
+        <h3>Class card type</h3>
+        <div class="sg-sample">
+          <p class="sg-type-subhead">HYROX</p>
+          <p class="sg-type-hyrox">Official HYROX training tailored to your individual level</p>
+          <p class="sg-type-body" style="text-align:center">The ultimate combination of running, functional strength training and joy</p>
+        </div>
+        <p class="sg-note">Card titles are Bold 36, sentence case. Only the HYROX subhead is teal. Bike and Strength have no subhead. Bullets are Medium 20. HYROX heading-to-sub and sub-to-bullets are 8px; other cards use 28px from title to list.</p>
+
+        <h3>Quotes</h3>
+        <div class="sg-sample sg-sample--teal">
+          <p class="sg-type-quote">“It's the perfect mix of serious and fun. Because it's run by world-class coaches who I'd trust with my life, I just have to show up, follow their lead, and enjoy the welcoming and energizing community.”</p>
+        </div>
+        <p class="sg-note">Medium italic 20, white on teal. No attribution names on Center testimonials.</p>
+
+        <h3>Coach labels</h3>
+        <div class="sg-sample">
+          <p class="sg-type-coach">Matt Dixon</p>
+          <p class="sg-type-coach-role">Founder, performance coach</p>
+        </div>
+        <p class="sg-note">Name Bold 20 uppercase 0.04em. Role Medium 20 sentence case. Bio Medium 20 / 1.4.</p>
+
+        <h3>Chrome type</h3>
+        <div class="sg-sample sg-sample--hero">
+          <p class="sg-type-nav">About · Classes · Services · Purple Patch Home</p>
+          <p class="sg-type-utility">Download iOS App · Coaching · Shop Gear · Login</p>
+        </div>
+        <p class="sg-note">Main nav: Bold 12, uppercase, 0.14em, 90% white, teal on hover. Utility: Medium 16, sentence case, <code>--pp-on-dark-muted</code>. Footer column titles: Bold 14, uppercase, 0.08em, left-aligned. Buttons: Bold 20, uppercase, 0.05em.</p>
+      </section>
+
+      <section id="color">
+        <h2>Color</h2>
+        <p class="sg-lede">Ink, muted, and teal do the work. Gold is reserved for the wordmark, footer legal hover, and the Personal Attention list rules. Body accents and CTAs are teal, not gold.</p>
+        <div class="sg-swatches">
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#1a1a1a"></div><div class="sg-swatch__meta"><strong>Ink</strong><span>#1A1A1A · --pp-ink</span><span>Headings, body, rules</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#5c5c5c"></div><div class="sg-swatch__meta"><strong>Muted</strong><span>#5C5C5C · --pp-muted</span><span>Secondary labels only — not body</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#1dbccd"></div><div class="sg-swatch__meta"><strong>Teal</strong><span>#1DBCCD · --pp-blue</span><span>CTAs, HYROX sub, hover, accent bar</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#0f9baa"></div><div class="sg-swatch__meta"><strong>Teal deep</strong><span>#0F9BAA · --pp-blue-deep</span><span>Primary button hover</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#0f5e67"></div><div class="sg-swatch__meta"><strong>Teal dark</strong><span>#0F5E67 · --pp-blue-dark</span><span>Pattern gradient midpoint</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#867650"></div><div class="sg-swatch__meta"><strong>Gold</strong><span>#867650 · --pp-gold</span><span>Logo, attention rules, footer hover</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#fff;border-bottom:1px solid #eee"></div><div class="sg-swatch__meta"><strong>White</strong><span>#FFFFFF</span><span>Page, light sections, on-dark text</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#151515"></div><div class="sg-swatch__meta"><strong>Footer black</strong><span>#151515</span><span>Services section + footer link block</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#fff;background-image:linear-gradient(#fff,#fff);position:relative"><span style="display:block;height:88px;background:rgba(0,0,0,0.38)"></span></div><div class="sg-swatch__meta"><strong>Nav overlay</strong><span>rgba(0,0,0,0.38)</span><span>Both header rows</span></div></article>
+          <article class="sg-swatch"><div class="sg-swatch__chip" style="background:#111"></div><div class="sg-swatch__meta"><strong>On dark</strong><span>#FFF / 82% white</span><span>Text on teal, black, and hero</span></div></article>
+        </div>
+        <p class="sg-note">Placeholder service tiles use charcoal swatches (#2A3036, #3D3530, #2E343C, #35322C) — not light gray. Quote cards on teal use a black wash: <code>linear-gradient(203deg, rgba(0,0,0,0.08), rgba(0,0,0,0.22))</code>.</p>
+      </section>
+
+      <section id="pattern">
+        <h2>Pattern</h2>
+        <p class="sg-lede">Two pattern treatments. Do not invent a third. Tile opacity is 0.4 unless noted.</p>
+        <div class="sg-patterns">
+          <div class="sg-pattern sg-pattern--teal"><span>Teal gradient + Testimonials tile · Classes, Born out of world-class sport</span></div>
+          <div class="sg-pattern sg-pattern--light"><span>White + light PP tile · Next-Level Fitness, Don’t Just Take Our Word For It</span></div>
+          <div class="sg-pattern sg-pattern--none"><span>Flat white · Personal Attention, Locally-Owned type block, most editorial</span></div>
+          <div class="sg-pattern sg-pattern--dark"><span>Flat #151515, no tile · So Much More Than A Gym, footer link columns</span></div>
+        </div>
+        <dl class="sg-dl">
+          <dt>Teal stack</dt>
+          <dd><code>--pp-pattern-grad</code> 180°: #1DBCCD → #0F5E67 at 42% → #111. Overlay <code>--pp-pattern-tile</code> at 40% opacity. Children sit at z-index 1.</dd>
+          <dt>Light stack</dt>
+          <dd>White fill, <code>--pp-pattern-light</code> repeating, size 100% auto, top-aligned.</dd>
+          <dt>Do not</dt>
+          <dd>Put the light tile on teal, or the testimonials tile on white. Do not lower opacity to “soften” a section.</dd>
+        </dl>
+      </section>
+
+      <section id="buttons">
+        <h2>Buttons</h2>
+        <p class="sg-lede">Two types only. No gold buttons, no filled black, no text links styled as a third CTA.</p>
+        <div class="sg-sample">
+          <div class="sg-btns">
+            <a class="btn-blue btn-blue--solid" href="#buttons">Book a class</a>
+            <a class="btn-blue-outline" href="#buttons">Schedule a visit</a>
+          </div>
+        </div>
+        <dl class="sg-dl">
+          <dt>Primary</dt>
+          <dd>Solid teal #1DBCCD, white type, Bold 20, uppercase, 0.05em, padding 14×24. Hover: #0F9BAA and 1px lift. Used for Book a class / Book Now / Book a Class.</dd>
+          <dt>Secondary</dt>
+          <dd>2px teal outline, teal type, same type and padding. Hover fills teal with white type. Used for Schedule a visit, header Book Now / Buy Classes pair (compact 16px in the nav).</dd>
+          <dt>Pairing</dt>
+          <dd>Primary first, then outline. Row gap 12px. Same weight on both.</dd>
+        </dl>
+      </section>
+
+      <section id="spacing">
+        <h2>Spacing</h2>
+        <p class="sg-lede">Section padding is equal top and bottom. The default editorial band is <code>clamp(56px, 9vh, 104px)</code> with 24px side gutters. Content width is <code>--pp-max: 1230px</code>.</p>
+        <div class="sg-space-row"><span>12px</span><div class="sg-space-bar" style="width:12px"></div><span>Photo gaps, masonry, Next Level insets</span></div>
+        <div class="sg-space-row"><span>16px</span><div class="sg-space-bar" style="width:16px"></div><span>Heading to nearby copy (some stacks)</span></div>
+        <div class="sg-space-row"><span>20px</span><div class="sg-space-bar" style="width:20px"></div><span>H2 to subhead; attention photo gap; coach cards</span></div>
+        <div class="sg-space-row"><span>24px</span><div class="sg-space-bar" style="width:24px"></div><span>Page gutter; header side padding</span></div>
+        <div class="sg-space-row"><span>28px</span><div class="sg-space-bar" style="width:28px"></div><span>Utility link gap; class title to bullets (non-HYROX)</span></div>
+        <div class="sg-space-row"><span>30px</span><div class="sg-space-bar" style="width:30px"></div><span>Class cards, quote grid, footer columns</span></div>
+        <div class="sg-space-row"><span>40px</span><div class="sg-space-bar" style="width:40px"></div><span>Heading block to quote grid</span></div>
+        <div class="sg-space-row"><span>72px</span><div class="sg-space-bar" style="width:72px"></div><span>Gap above the Purple Patch definition</span></div>
+        <p class="sg-note">Personal Attention uses a taller band: <code>clamp(72px, 10vh, 120px)</code>. Locally-Owned keeps extra space under the CTAs before masonry: <code>clamp(64px, 10vh, 96px)</code>. Manifesto quotes should not add a leftover bottom margin — section padding already matches the top.</p>
+      </section>
+
+      <section id="layout">
+        <h2>Layout &amp; breakpoints</h2>
+        <dl class="sg-dl">
+          <dt>≥1025px</dt>
+          <dd>Desktop. Three class cards in a row. Quote boxes 2×2. Header is two rows with spanning logo. Next Level is a 3×2 photo sandwich around centered copy.</dd>
+          <dt>≤1024px</dt>
+          <dd>Type tokens step down. Top utility nav hides. Hamburger appears. Class cards stack to one column. Next Level photos become a looping marquee. Masonry first row collapses into the marquee. Services go to two columns, then one at 767.</dd>
+          <dt>≤767px</dt>
+          <dd>Quotes become a single-card slider with arrows and dots. Personal Attention photos crossfade instead of a 3-up grid. Footer links go to one column.</dd>
+        </dl>
+        <p class="sg-note">There is no sticky bottom CTA on Center. There is no sticky header — it sits absolute over the hero.</p>
+      </section>
+
+      <section id="navigation">
+        <h2>Navigation</h2>
+        <p class="sg-lede">Two-row overlay on desktop. Single bar + full-screen white menu on small viewports. Not sticky.</p>
+        <div class="sg-nav-mock" aria-hidden="true">
+          <div class="sg-nav-mock__top">Download iOS App · Coaching · Shop Gear · Login</div>
+          <div class="sg-nav-mock__main">About · Classes · Services · Purple Patch Home · Book Now · Buy Classes</div>
+        </div>
+        <dl class="sg-dl">
+          <dt>Overlay</dt>
+          <dd>Both rows: <code>rgba(0, 0, 0, 0.38)</code>. No extra bordered plate around the nav.</dd>
+          <dt>Dividers</dt>
+          <dd>1px ink <code>#1A1A1A</code>. The line between rows stops before the logo. The main bar has a full-width bottom edge.</dd>
+          <dt>Desktop height</dt>
+          <dd>Utility padding 12px 24px. Main bar padding 22px 24px. Combined offset for hero content: 136px. Logo 64px tall, vertically centered across both rows, left-aligned to the 1230px content inset.</dd>
+          <dt>Mobile height</dt>
+          <dd>Utility row hidden. Bar padding 16px 20px. Logo 48px. Header offset 80px. Menu logo 44px, width auto (never stretched).</dd>
+          <dt>Menu</dt>
+          <dd>Full-viewport white panel, 24px padding. Group labels and top links are Black ~32px. Nested links Medium 16 muted. Close target 44×44. Body scroll locked while open.</dd>
+          <dt>Dropdowns</dt>
+          <dd>Desktop hover/focus: white panel, ink Medium 16, teal hover, 10px offset, 18rem min width.</dd>
+        </dl>
+      </section>
+
+      <section id="interactions">
+        <h2>Interactions</h2>
+        <h3>Class cards</h3>
+        <p class="sg-lede">Desktop: hover flips. Touch: tap flips; a drag greater than 8px does not flip. Only one card is flipped at a time. The Book button is a real link and does not toggle the card. Flip runs 0.7s on <code>cubic-bezier(0.22, 1, 0.36, 1)</code>.</p>
+        <article class="sg-flip" id="sgFlip" tabindex="0" aria-label="HYROX card demo. Activate to flip.">
+          <div class="sg-flip__inner">
+            <div class="sg-flip__face sg-flip__front">
+              <img src="images/performance-center/class-hyrox.jpg" alt="" />
+              <h3>HYROX</h3>
+            </div>
+            <div class="sg-flip__face sg-flip__back">
+              <h3>HYROX</h3>
+              <p class="sg-type-hyrox">Official HYROX training tailored to your individual level</p>
+              <p class="sg-type-small">Tap or click to flip back</p>
+            </div>
+          </div>
+        </article>
+        <p class="sg-caption">Below 1024px the three cards stack. They do not sit in a swipe row.</p>
+
+        <h3>Marquees</h3>
+        <p class="sg-lede">Locally-Owned masonry and the Next Level mobile rail loop at the same visual speed: 70s for the masonry track, with Next Level duration scaled from that track’s length. Pause is not required. Gap between images stays 12px while moving. Reduced-motion users get no transform animation on flips.</p>
+
+        <h3>Quote slider</h3>
+        <p class="sg-lede">Desktop and tablet: 2×2 static grid, no arrows. ≤767: one quote at a time, previous/next, swipe, and dots. Controls are white on the teal section (not teal-on-teal).</p>
+        <div class="sg-sample sg-sample--teal">
+          <p class="sg-type-quote">“Smaller classes with more personalized attention allow me to push myself harder without worrying about getting hurt.”</p>
+          <div class="sg-dots" aria-hidden="true"><button type="button"></button><button type="button" class="is-active"></button><button type="button"></button><button type="button"></button></div>
+        </div>
+
+        <h3>Other</h3>
+        <dl class="sg-dl">
+          <dt>Personal Attention</dt>
+          <dd>≤767 the three photos crossfade. Wider viewports stay a static 3-up crop.</dd>
+          <dt>Booking drawer</dt>
+          <dd>Opens from Schedule a visit. Locks body scroll. Sticky header, 2px progress bar.</dd>
+          <dt>Focus</dt>
+          <dd>Class cards use a 3px teal ring on <code>:focus-visible</code>.</dd>
+        </dl>
+      </section>
+
+      <section id="photography">
+        <h2>Photography</h2>
+        <p class="sg-lede">Documentary, in-facility, people in motion. No stock-gym look. Crop for faces and effort, not empty floor.</p>
+        <div class="sg-photo-row">
+          <div>
+            <img class="sg-radius-16" src="images/performance-center/class-bike.jpg" alt="Bike class" />
+            <p class="sg-caption">16px · Next Level, class fronts, coaches</p>
+          </div>
+          <div>
+            <img class="sg-radius-10" src="images/performance-center/masonry-training-floor.jpg" alt="Training floor" />
+            <p class="sg-caption">10px · Masonry, services, quote cards</p>
+          </div>
+          <div>
+            <img class="sg-radius-0" src="images/performance-center/founders-masonry-3.png" alt="Matt and Kelli" />
+            <p class="sg-caption">0px · When Matt &amp; Kelli is the only still photo on small viewports</p>
+          </div>
+        </div>
+        <dl class="sg-dl">
+          <dt>HYROX crop</dt>
+          <dd>Object position ~32% center so the athlete sits slightly left of center.</dd>
+          <dt>Coaches</dt>
+          <dd>2:3 portraits, cover, bottom-weighted.</dd>
+          <dt>Hero</dt>
+          <dd>Full-bleed looping video, cover, object-position center 40%.</dd>
+        </dl>
+      </section>
+
+      <section id="motion">
+        <h2>Motion</h2>
+        <dl class="sg-dl">
+          <dt>Flip</dt>
+          <dd>0.7s · cubic-bezier(0.22, 1, 0.36, 1)</dd>
+          <dt>Buttons</dt>
+          <dd>0.25s color/background; 1px translateY on primary hover</dd>
+          <dt>Photo switch</dt>
+          <dd>0.9s opacity crossfade</dd>
+          <dt>Marquee</dt>
+          <dd>70s linear infinite on the masonry loop</dd>
+          <dt>Reduced motion</dt>
+          <dd>Flip transition none. Do not add bounce or parallax on Center.</dd>
+        </dl>
+      </section>
+
+      <section id="rules">
+        <h2>Do / don’t</h2>
+        <div class="sg-do">
+          <article>
+            <h3>Do</h3>
+            <ul>
+              <li>Use Bornia Medium / Bold / Black only.</li>
+              <li>Keep body at 20px ink.</li>
+              <li>Pair solid teal with outline teal — nothing else.</li>
+              <li>Match section padding top and bottom.</li>
+              <li>Let display headings wrap on small screens.</li>
+              <li>Keep quotes anonymous.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Don’t</h3>
+            <ul>
+              <li>Don’t use light-gray body copy.</li>
+              <li>Don’t add a sticky nav or sticky bottom CTA.</li>
+              <li>Don’t put names on testimonial cards.</li>
+              <li>Don’t stretch the logo — always <code>width: auto</code>.</li>
+              <li>Don’t introduce a third button style or gold CTAs.</li>
+              <li>Don’t link this style guide from the Center page.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var card = document.getElementById("sgFlip");
+      if (!card) return;
+      function toggle() { card.classList.toggle("is-flipped"); }
+      card.addEventListener("click", toggle);
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

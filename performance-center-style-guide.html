@@ -7,7 +7,7 @@
   <meta name="description" content="Design system for the current Purple Patch Performance Center mockup: type, color, pattern, spacing, navigation, and interactions." />
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="css/pp-mockup.css?v=123" />
-  <link rel="stylesheet" href="css/pp-style-guide.css?v=1" />
+  <link rel="stylesheet" href="css/pp-style-guide.css?v=2" />
 </head>
 <body class="sg">
   <a class="sg-skip" href="#content">Skip to content</a>
@@ -27,18 +27,25 @@
       <a href="#pattern">Pattern</a>
       <a href="#buttons">Buttons</a>
       <a href="#spacing">Spacing</a>
+      <a href="#anatomy">Anatomy</a>
+      <a href="#components">Components</a>
+      <a href="#booking">Booking</a>
+      <a href="#states">States</a>
       <a href="#layout">Layout</a>
       <a href="#navigation">Navigation</a>
       <a href="#interactions">Interactions</a>
       <a href="#photography">Photography</a>
+      <a href="#logo">Logo &amp; icons</a>
+      <a href="#elevation">Elevation</a>
       <a href="#motion">Motion</a>
+      <a href="#voice">Voice</a>
       <a href="#rules">Rules</a>
     </nav>
 
     <main class="sg-main" id="content">
       <section id="overview">
         <h2>How to use this</h2>
-        <p class="sg-lede">This guide describes the current Center implementation, not an older Figma file. Copy samples are taken from the Center page. Beyond the requested type, color, pattern, interaction, spacing, and navigation notes, it also records buttons, layout breakpoints, photography radii, and motion — the details most likely to drift if someone rebuilds a section from memory.</p>
+        <p class="sg-lede">This guide describes the current Center implementation, not an older Figma file. Use it to rebuild a section or a Figma file without guessing: tokens, page order, component anatomy, booking UI, and states. Copy samples are taken from the Center page. This document is not linked from the Center mockup.</p>
       </section>
 
       <section id="type">
@@ -238,17 +245,216 @@
         <p class="sg-note">Personal Attention uses a taller band: <code>clamp(72px, 10vh, 120px)</code>. Locally-Owned keeps extra space under the CTAs before masonry: <code>clamp(64px, 10vh, 96px)</code>. Manifesto quotes should not add a leftover bottom margin — section padding already matches the top.</p>
       </section>
 
+      <section id="anatomy">
+        <h2>Page anatomy</h2>
+        <p class="sg-lede">Build the page in this order. Do not insert a sticky CTA, a named testimonial strip, or a second hero. Content width is 1230px with 24px gutters; masonry and marquees may bleed full-bleed.</p>
+        <div class="sg-flow">
+          <article class="sg-flow--hero"><strong>Hero</strong><span>Video, overlay, H1 + title + one primary button</span><em>Photo overlay</em></article>
+          <article class="sg-flow--light"><strong>Next-Level Fitness</strong><span>3 photos · copy · 3 photos. Definition under the kicker</span><em>White + light tile</em></article>
+          <article class="sg-flow--teal"><strong>Classes</strong><span>Heading, subhead, 3 flip cards, closing line</span><em>Teal + tile</em></article>
+          <article class="sg-flow--white"><strong>Personal Attention</strong><span>Photos 1.1 / 0.9 + gold-ruled list</span><em>Flat white</em></article>
+          <article class="sg-flow--ink"><strong>So Much More Than A Gym</strong><span>9 service tiles, 3 × 3</span><em>#151515</em></article>
+          <article class="sg-flow--white"><strong>Best Coaches</strong><span>Body full width, then 2:3 coach row</span><em>Flat white</em></article>
+          <article class="sg-flow--teal"><strong>Born out of world-class sport</strong><span>Heading, subhead, 2×2 anonymous quotes</span><em>Teal + tile</em></article>
+          <article class="sg-flow--white"><strong>Locally-Owned</strong><span>Copy, Book + Schedule, then masonry + marquee</span><em>Flat white</em></article>
+          <article class="sg-flow--ink"><strong>Footer links</strong><span>Four columns</span><em>#151515</em></article>
+          <article class="sg-flow--white"><strong>Legal footer</strong><span>Gold P logo 83px, legal links</span><em>Flat white</em></article>
+        </div>
+      </section>
+
+      <section id="components">
+        <h2>Components</h2>
+        <div class="sg-comps">
+          <article class="sg-comp">
+            <h3>Class card</h3>
+            <p class="sg-lede">Min-height 444px. Front is a full-bleed photo with Bold 36 title, centered, 20px inset, 22px from the bottom. Back is white/warm, padding 32×22×28. Book a class is primary and <code>margin-top: auto</code> so it sits on the bottom. Bike | HYROX | Strength. HYROX only gets the teal subhead; 8px from title to sub and sub to bullets. Other cards: 28px from title to list.</p>
+          </article>
+          <article class="sg-comp">
+            <h3>Quote card</h3>
+            <div class="sg-sample sg-sample--teal">
+              <div class="sg-quote-card">
+                <p class="sg-type-quote">“The coaches are not just friendly; they are involved and engaged.”</p>
+              </div>
+            </div>
+            <p class="sg-note">30px padding, 10px radius, min-height 180px, Medium italic 20, no name. Grid 2×2 / 30px. On teal, fill is the black wash — not a teal wash.</p>
+          </article>
+          <article class="sg-comp">
+            <h3>Service tile</h3>
+            <div class="sg-service">
+              <img src="images/performance-center/service-personal-training.png" alt="" />
+              <p>Personal training</p>
+            </div>
+            <p class="sg-note">Image 390:290, 10px radius, title Bold 36 sentence case, 16px below the photo. Missing photos use charcoal swatches (#2A3036, #3D3530, #2E343C, #35322C), never light gray. Run analysis is top-cropped.</p>
+          </article>
+          <article class="sg-comp">
+            <h3>Coach card</h3>
+            <div class="sg-coach">
+              <img src="images/performance-center/coach-matt-figma.png" alt="Matt Dixon" />
+              <div class="sg-coach__info">
+                <div class="sg-type-coach">Matt Dixon</div>
+                <div class="sg-type-coach-role">Founder and Head Coach</div>
+              </div>
+            </div>
+            <p class="sg-note">2:3, 16px radius, 20px gap, cover, bottom-weighted. Resting label sits on a black fade. Hover: 1.04 photo scale and a teal-dark overlay with the bio. Placeholders use #24292F.</p>
+          </article>
+          <article class="sg-comp">
+            <h3>Purple Patch definition</h3>
+            <div class="sg-def">
+              <p><strong>*Purple Patch <em>(n.)</em></strong> A period in which you are in a state of flow and experience next-level performance and results.</p>
+            </div>
+            <p class="sg-note">72px above the block, max-width 42rem, centered. 72×2px teal rule, 12px to the line. Term is Bold italic; “(n.)” italic; definition Medium 20.</p>
+          </article>
+          <article class="sg-comp">
+            <h3>Masonry caption</h3>
+            <div class="sg-caption-bar">
+              <span><strong>Kelli McMaster</strong> Co-founder, wellness advocate</span>
+              <span><strong>Matt Dixon</strong> Founder, performance coach</span>
+            </div>
+            <p class="sg-note">Teal bar on the founders photo. Name Bold 20, role Medium 16. Hide the label when the photo is no longer visible. 12px gutters throughout the masonry; 10px photo radius (0px if that photo is the only still on small screens).</p>
+          </article>
+          <article class="sg-comp">
+            <h3>Personal Attention list</h3>
+            <p class="sg-lede">Photos left (1.1 + 0.9, first image spanning two rows, 10px radius, 20px gap). Copy right. List items Medium 20, 20px vertical pad, 1px gold rules — this is one of the few gold uses outside the logo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="booking">
+        <h2>Booking drawer</h2>
+        <p class="sg-lede">Opens from Schedule a visit. Right-hand panel 560px, full viewport height, white. Backdrop <code>rgba(0,0,0,0.5)</code>. Shadow <code>-20px 0 50px / 16%</code>. Body scroll locked. Three steps, then a thanks state.</p>
+        <div class="sg-booking" aria-hidden="true">
+          <div class="sg-booking__dim"></div>
+          <div class="sg-booking__panel">
+            <div class="sg-booking__head">
+              <div>
+                <p class="sg-booking__eyebrow">Visit the Center</p>
+                <p class="sg-booking__step">Step 1 of 3</p>
+              </div>
+              <span class="sg-booking__close">Close</span>
+            </div>
+            <div class="sg-booking__progress"><span></span></div>
+            <div class="sg-booking__body">
+              <h3>What brings you in?</h3>
+              <button type="button" class="sg-tile is-active"><strong>Tour the Center</strong><small>Walk the floor, meet a coach, ask anything.</small></button>
+              <button type="button" class="sg-tile"><strong>Try a class</strong><small>Bike, strength, or circuit — coached start to finish.</small></button>
+              <label class="sg-field">Full name<input type="text" placeholder="Alex Rivera" disabled /></label>
+            </div>
+          </div>
+        </div>
+        <dl class="sg-dl">
+          <dt>Chrome</dt>
+          <dd>Eyebrow Bold 11 uppercase 0.16em teal. Step Medium 13 muted. Close Bold 12 uppercase 0.12em. Sticky head, 24×16 pad, 1px ink-10% rule. Progress 2px, teal fill at 33 / 66 / 100%.</dd>
+          <dt>Tiles / slots</dt>
+          <dd>Square corners, 16px pad, 1px ink-10% border, 10px gap. Title Bold 18, helper Medium 14 muted. Hover and selected: teal border + 5% teal wash.</dd>
+          <dt>Days</dt>
+          <dd>Horizontal row, 8px gap, chip min-width 64px. DOW 10px uppercase muted; date Bold.</dd>
+          <dt>Fields</dt>
+          <dd>Label Bold 13, 8px to input. Input/select: square, 12×14 pad, 1px ink-10% border, Medium 16 ink on white. No rounded fields.</dd>
+          <dt>Nav</dt>
+          <dd>Outline Back + solid Continue. Continue stretches. Disabled Continue is inert until a slot is chosen.</dd>
+        </dl>
+      </section>
+
+      <section id="states">
+        <h2>States</h2>
+        <p class="sg-lede">If a control can be hovered, selected, focused, or empty, draw all four. Do not invent a third fill color.</p>
+        <div class="sg-states">
+          <div class="sg-state">
+            <p>Primary default / hover</p>
+            <div class="sg-btns">
+              <a class="btn-blue btn-blue--solid" href="#states">Book a class</a>
+              <a class="btn-blue btn-blue--solid" href="#states" style="background:#0f9baa">Book a class</a>
+            </div>
+          </div>
+          <div class="sg-state">
+            <p>Outline default / hover</p>
+            <div class="sg-btns">
+              <a class="btn-blue-outline" href="#states">Schedule a visit</a>
+              <a class="btn-blue-outline" href="#states" style="background:#1dbccd;color:#fff">Schedule a visit</a>
+            </div>
+          </div>
+          <div class="sg-state">
+            <p>Disabled Continue</p>
+            <div class="sg-btns">
+              <a class="btn-blue btn-blue--solid sg-btn-disabled" href="#states" aria-disabled="true">Continue</a>
+            </div>
+          </div>
+          <div class="sg-state">
+            <p>Focus-visible</p>
+            <span class="sg-focus">3px teal ring, 16px radius</span>
+          </div>
+          <div class="sg-state">
+            <p>Tile default</p>
+            <button type="button" class="sg-tile"><strong>Talk to a coach</strong><small>Twenty minutes on your goals.</small></button>
+          </div>
+          <div class="sg-state">
+            <p>Tile hover / selected</p>
+            <button type="button" class="sg-tile is-active"><strong>Talk to a coach</strong><small>Twenty minutes on your goals.</small></button>
+          </div>
+          <div class="sg-state">
+            <p>Day selected</p>
+            <div class="sg-day is-active"><span>Fri</span><strong>18</strong></div>
+          </div>
+          <div class="sg-state">
+            <p>Placeholder photo</p>
+            <div class="sg-swatch-block" style="max-width:160px"></div>
+            <p class="sg-caption">Charcoal, not light gray</p>
+          </div>
+        </div>
+      </section>
+
       <section id="layout">
         <h2>Layout &amp; breakpoints</h2>
+        <div class="sg-frames">
+          <article class="sg-frame">
+            <header>Desktop · 1440 / ≥1025</header>
+            <div class="sg-frame__art">
+              <div class="sg-wire sg-wire--hero"></div>
+              <div class="sg-wire sg-wire--row sg-wire--3"><div class="sg-wire sg-wire--col"></div><div class="sg-wire sg-wire--col"></div><div class="sg-wire sg-wire--col"></div></div>
+              <div class="sg-wire sg-wire--teal"></div>
+              <div class="sg-wire sg-wire--row sg-wire--3"><div class="sg-wire sg-wire--col"></div><div class="sg-wire sg-wire--col"></div><div class="sg-wire sg-wire--col"></div></div>
+              <div class="sg-wire sg-wire--row sg-wire--split"><div class="sg-wire sg-wire--col"></div><div class="sg-wire sg-wire--col"></div></div>
+              <div class="sg-wire sg-wire--ink"></div>
+              <div class="sg-wire sg-wire--row sg-wire--2"><div class="sg-wire sg-wire--col"></div><div class="sg-wire sg-wire--col"></div></div>
+            </div>
+          </article>
+          <article class="sg-frame">
+            <header>Tablet · ≤1024</header>
+            <div class="sg-frame__art">
+              <div class="sg-wire sg-wire--hero"></div>
+              <div class="sg-wire sg-wire--col"></div>
+              <div class="sg-wire"></div>
+              <div class="sg-wire sg-wire--teal"></div>
+              <div class="sg-wire sg-wire--col"></div>
+              <div class="sg-wire sg-wire--col"></div>
+              <div class="sg-wire sg-wire--col"></div>
+              <div class="sg-wire sg-wire--ink"></div>
+              <div class="sg-wire sg-wire--row sg-wire--2"><div class="sg-wire sg-wire--col"></div><div class="sg-wire sg-wire--col"></div></div>
+            </div>
+          </article>
+          <article class="sg-frame">
+            <header>Mobile · ≤767</header>
+            <div class="sg-frame__art">
+              <div class="sg-wire sg-wire--hero"></div>
+              <div class="sg-wire"></div>
+              <div class="sg-wire sg-wire--teal"></div>
+              <div class="sg-wire sg-wire--col"></div>
+              <div class="sg-wire sg-wire--col"></div>
+              <div class="sg-wire"></div>
+              <div class="sg-wire"></div>
+              <div class="sg-wire sg-wire--ink"></div>
+            </div>
+          </article>
+        </div>
         <dl class="sg-dl">
           <dt>≥1025px</dt>
-          <dd>Desktop. Three class cards in a row. Quote boxes 2×2. Header is two rows with spanning logo. Next Level is a 3×2 photo sandwich around centered copy.</dd>
+          <dd>Two-row header, 64px spanning logo. Next Level 3 + copy + 3. Classes 3-up. Attention photo grid + list. Services 3×3. Quotes 2×2. Masonry 6 columns, founders photo 2×2 in the center of row 1–2.</dd>
           <dt>≤1024px</dt>
-          <dd>Type tokens step down. Top utility nav hides. Hamburger appears. Class cards stack to one column. Next Level photos become a looping marquee. Masonry first row collapses into the marquee. Services go to two columns, then one at 767.</dd>
+          <dd>Type steps down. Utility row hides; hamburger. Classes stack to one column. Next Level photos become a 70s-speed marquee. Masonry stills join the marquee. Services 2 columns. Quotes stay 2×2 until 767.</dd>
           <dt>≤767px</dt>
-          <dd>Quotes become a single-card slider with arrows and dots. Personal Attention photos crossfade instead of a 3-up grid. Footer links go to one column.</dd>
+          <dd>Quotes become a one-card slider with white arrows and dots. Attention photos crossfade. Services and footer go to one column. Founders photo, if alone, loses radius.</dd>
         </dl>
-        <p class="sg-note">There is no sticky bottom CTA on Center. There is no sticky header — it sits absolute over the hero.</p>
+        <p class="sg-note">There is no sticky bottom CTA. The header is absolute over the hero, not sticky.</p>
       </section>
 
       <section id="navigation">
@@ -308,7 +514,7 @@
           <dt>Personal Attention</dt>
           <dd>≤767 the three photos crossfade. Wider viewports stay a static 3-up crop.</dd>
           <dt>Booking drawer</dt>
-          <dd>Opens from Schedule a visit. Locks body scroll. Sticky header, 2px progress bar.</dd>
+          <dd>See Booking. Do not restyle it as a centered modal.</dd>
           <dt>Focus</dt>
           <dd>Class cards use a 3px teal ring on <code>:focus-visible</code>.</dd>
         </dl>
@@ -337,8 +543,49 @@
           <dt>Coaches</dt>
           <dd>2:3 portraits, cover, bottom-weighted.</dd>
           <dt>Hero</dt>
-          <dd>Full-bleed looping video, cover, object-position center 40%.</dd>
+          <dd>Full-bleed looping video, cover, object-position center 40%. Overlay is <code>--pp-photo-overlay</code>: black 12% → 24% → 46%. No bordered plate on the nav.</dd>
         </dl>
+      </section>
+
+      <section id="logo">
+        <h2>Logo &amp; icons</h2>
+        <p class="sg-lede">Use the Center wordmark only. Keep aspect ratio. Gold lives in the mark, not in page CTAs.</p>
+        <div class="sg-logo-row">
+          <div class="sg-logo-spec">
+            <img src="images/performance-center/logo-center.png" alt="" height="64" style="height:64px" />
+            <p class="sg-caption">Desktop header 64px</p>
+          </div>
+          <div class="sg-logo-spec">
+            <img src="images/performance-center/logo-center.png" alt="" height="48" style="height:48px" />
+            <p class="sg-caption">Mobile header 48px</p>
+          </div>
+          <div class="sg-logo-spec">
+            <img src="images/performance-center/logo-center.png" alt="" height="44" style="height:44px" />
+            <p class="sg-caption">Menu 44px</p>
+          </div>
+          <div class="sg-logo-spec">
+            <img src="images/performance-center/footer-plogo-gold.png" alt="" width="83" style="width:83px;height:auto" />
+            <p class="sg-caption">Footer P 83px</p>
+          </div>
+        </div>
+        <dl class="sg-dl">
+          <dt>Clear space</dt>
+          <dd>Keep at least the height of the P-mark between the logo and other UI, except the 16px gap used when the mark spans both header rows.</dd>
+          <dt>Never</dt>
+          <dd>Do not set a width without <code>width: auto</code>. Do not recolor the wordmark teal. Do not place it on a competing patterned plate.</dd>
+          <dt>Icons</dt>
+          <dd>No decorative icons in page content. Allowed chrome only: hamburger, close, quote arrows. Stroke 2px, currentColor, 24px in a 44px hit target.</dd>
+        </dl>
+      </section>
+
+      <section id="elevation">
+        <h2>Elevation</h2>
+        <p class="sg-lede">The page is flat. Cards, tiles, and photos do not lift. The only shadows are chrome.</p>
+        <div class="sg-elev">
+          <article>None · cards, photos, quote boxes, service tiles</article>
+          <article class="sg-elev--drop">Dropdown · 0 12px 32px rgba(0,0,0,0.18)</article>
+          <article class="sg-elev--drawer">Drawer · -20px 0 50px rgba(0,0,0,0.16)</article>
+        </div>
       </section>
 
       <section id="motion">
@@ -357,6 +604,34 @@
         </dl>
       </section>
 
+      <section id="voice">
+        <h2>Voice &amp; content</h2>
+        <p class="sg-lede">Typesetting follows these copy rules. If a line fights the layout, change the layout, not the voice.</p>
+        <div class="sg-voice">
+          <article>
+            <p class="ok">Do</p>
+            <ul>
+              <li>Sentence-case subheads and class names: “Personal training”, not “PERSONAL TRAINING”.</li>
+              <li>Uppercase display headings, and let them wrap.</li>
+              <li>Keep “Purple Patch” Medium in running copy. Bold italic only on the dictionary term.</li>
+              <li>HYROX is the only class subhead, and the only one in teal.</li>
+              <li>Quotes stay anonymous. No member names or cities.</li>
+              <li>Prefer em dashes and concrete coaching language.</li>
+            </ul>
+          </article>
+          <article>
+            <p class="no">Don’t</p>
+            <ul>
+              <li>Don’t shrink a heading to force one line.</li>
+              <li>Don’t set body in muted gray or a light gray.</li>
+              <li>Don’t write “mere mortals”, “every human”, or cute gym clichés.</li>
+              <li>Don’t add a byline, star rating, or logo row on quotes.</li>
+              <li>Don’t invent a third CTA label style.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section id="rules">
         <h2>Do / don’t</h2>
         <div class="sg-do">
@@ -369,6 +644,8 @@
               <li>Match section padding top and bottom.</li>
               <li>Let display headings wrap on small screens.</li>
               <li>Keep quotes anonymous.</li>
+              <li>Follow the page order and surface for each section.</li>
+              <li>Keep booking as a right-hand drawer, not a modal.</li>
             </ul>
           </article>
           <article>
@@ -379,6 +656,8 @@
               <li>Don’t put names on testimonial cards.</li>
               <li>Don’t stretch the logo — always <code>width: auto</code>.</li>
               <li>Don’t introduce a third button style or gold CTAs.</li>
+              <li>Don’t add drop shadows to cards.</li>
+              <li>Don’t put decorative icons in content.</li>
               <li>Don’t link this style guide from the Center page.</li>
             </ul>
           </article>

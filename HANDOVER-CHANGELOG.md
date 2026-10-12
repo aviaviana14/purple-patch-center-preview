@@ -94,7 +94,7 @@ Staging relies more on outbound links to Center buy/schedule. This mockup adds:
 | --- | --- | --- |
 | Photos | Mix of photos / placeholders; “Jenna” naming | Full set of headshots for Matt, Jon, Marcia, Krystle, **CJ**, **Jena**, Kristin, Tyler |
 | Naming | Jenna | **Jena** |
-| CJ | Present | Photo + title **Coach (Coming Soon)** |
+| CJ | Present | Photo + title **Coach** |
 | Hover bios | Staging-style overlays | **Removed** — name + title only, no hover bio / zoom |
 
 ---

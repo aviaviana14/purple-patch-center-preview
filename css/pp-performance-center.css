@@ -4017,8 +4017,13 @@ html.center-lead-open body {
 .page-refined.page-performance-center .center-split__row--solo {
   display: block;
   max-width: 1182px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+}
+
+.page-refined.page-performance-center .center-split__row--solo .center-split__copy {
   text-align: center;
 }
 
@@ -4109,74 +4114,14 @@ html.center-lead-open body {
   margin-bottom: 0;
 }
 
-.page-refined.page-performance-center .center-trainers__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
-  max-width: 1240px;
-  margin: 0 auto;
-}
-
-.page-refined.page-performance-center .center-trainers .coach-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #fff;
-}
-
-.page-refined.page-performance-center .center-trainers .coach-card img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
+.page-refined.page-performance-center .center-trainers .class-flip__front img {
   object-position: center top;
-  background: #fff;
 }
 
-.page-refined.page-performance-center .center-trainers .coach-card--placeholder .coach-card__swatch {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  background: var(--pp-pattern-grad);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 16px;
-  overflow: hidden;
-}
-
-.page-refined.page-performance-center .center-trainers .coach-card--placeholder .coach-card__swatch::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--pp-pattern-tile);
-  background-repeat: repeat;
-  background-size: cover;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.page-refined.page-performance-center .center-trainers .coach-card--placeholder .coach-card__soon {
-  position: relative;
-  z-index: 1;
-  font-family: "Bornia-Bold", serif;
-  font-size: clamp(18px, 2.2vw, 24px);
-  line-height: 1.2;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.page-refined.page-performance-center .center-trainers .coach-card__info {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 20px 16px 18px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
-  color: #fff;
-  text-align: center;
+.page-refined.page-performance-center .center-trainers .class-flip__back p {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .page-refined.page-performance-center .center-flips--portrait .class-flip {
@@ -4530,10 +4475,6 @@ html.center-lead-open body {
     max-width: 640px;
     width: 100%;
     margin: 0 auto;
-  }
-  .page-refined.page-performance-center .center-trainers__grid {
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 420px;
   }
   .page-refined.page-performance-center .center-flips--portrait .class-flip {
     aspect-ratio: auto;

@@ -400,6 +400,19 @@
     });
   });
 
+  /* Exclusive open for service-page FAQ / therapist details */
+  document.querySelectorAll(".center-faq").forEach((group) => {
+    const items = [...group.querySelectorAll("details")];
+    items.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (!item.open) return;
+        items.forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+      });
+    });
+  });
+
   if (reduced) return;
 
   const parallaxEls = [...document.querySelectorAll("[data-parallax]")];

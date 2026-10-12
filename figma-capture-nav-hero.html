@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PP Center — Nav + Hero (Figma capture)</title>
+  <link rel="stylesheet" href="css/pp-mockup.css?v=123" />
+  <link rel="stylesheet" href="css/pp-mockup-refined.css?v=171" />
+  <link rel="stylesheet" href="css/pp-mockup-vertical.css?v=193" />
+  <link rel="stylesheet" href="css/run-squad-overlap-motion.css?v=3" />
+  <link rel="stylesheet" href="css/pp-performance-center.css?v=97" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    /* Capture only first viewport: nav + hero */
+    html, body { margin: 0; overflow: hidden; height: 100vh; }
+    .center-site-menu { display: none !important; }
+  </style>
+</head>
+<body class="page-refined page-tri-squad-overlap page-tri-squad-vertical page-performance-center">
+  <header class="center-site-header" id="center-site-header">
+    <div class="center-site-header__top">
+      <div class="center-site-header__utility">
+        <div class="center-site-header__utility-end">
+          <a href="https://www.purplepatchfitness.com/">Purple Patch Home</a>
+          <a href="https://apps.apple.com/us/app/purple-patch/id1502928860?ls=1">Download iOS App</a>
+          <a href="login/">Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="center-site-header__main">
+      <div class="center-site-header__bar">
+      <a class="center-site-header__brand" href="#top">
+        <img src="images/performance-center/logo-center.png?v=2" alt="Purple Patch Center" width="382" height="127" />
+      </a>
+      <nav class="center-site-header__nav" aria-label="Primary">
+        <a href="#classes">Classes</a>
+        <div class="center-site-header__dropdown">
+          <button type="button" class="center-site-header__drop-btn" aria-haspopup="true">Services</button>
+          <div class="center-site-header__dropdown-panel">
+            <a href="/purple-patch-center-preview/services/strategic-bike-fitting/">Strategic Bike Fitting with Chris Soden</a>
+            <a href="/purple-patch-center-preview/services/smi-orthopedic-massage/">SMI Orthopedic Massage</a>
+            <a href="/purple-patch-center-preview/services/sweat-testing/">Precision Hydration Sweat Testing</a>
+            <a href="services/physical-therapy/">360 Physical Therapy</a>
+            <a href="/purple-patch-center-preview/services/personal-training/">Personal Training</a>
+          </div>
+        </div>
+        <a class="btn-blue btn-blue--solid" href="schedule/">Book a Class</a>
+        <a class="btn-blue-outline" href="https://aviaviana14.github.io/purple-patch-center-preview/pricing/">Join Us</a>
+      </nav>
+      <button type="button" class="center-site-header__menu-btn" id="centerMenuButton" aria-expanded="false" aria-controls="centerMenuPanel" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M.5 2.5h11v1H.5zm0 3h11v1H.5zm0 3h11v1H.5z"/></svg>
+      </button>
+    </div>
+    </div>
+  </header>
+
+  <section class="hero hero--live hero--figma" id="top" data-pp-block="hero">
+    <div class="hero__media">
+      <video autoplay muted loop playsinline poster="images/performance-center/ppf-center-hero-poster.jpg">
+        <source src="images/performance-center/ppf-center-hero-video.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1>Train Smarter.<br />Get Stronger.<br />Live Better.</h1>
+      <p class="sub">A world-class training center and community for fitness, strength, and vitality.</p>
+      <button type="button" class="btn-blue btn-blue--solid">First Class Free</button>
+    </div>
+  </section>
+</body>
+</html>

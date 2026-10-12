@@ -1,13 +1,570 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=services/physical-therapy/" />
-  <link rel="canonical" href="services/physical-therapy/" />
-  <title>360 Physical Therapy</title>
-  <script>location.replace("services/physical-therapy/");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Purple Patch Performance Center — San Francisco</title>
+  <meta name="description" content="A world-class training center and community for fitness, strength, and vitality. Train smarter. Get stronger. Live better. at 268 Alabama Street, San Francisco." />
+  <link rel="stylesheet" href="css/pp-mockup.css?v=123" />
+  <link rel="stylesheet" href="css/pp-mockup-refined.css?v=171" />
+  <link rel="stylesheet" href="css/pp-mockup-vertical.css?v=193" />
+  <link rel="stylesheet" href="css/run-squad-overlap-motion.css?v=3" />
+  <link rel="stylesheet" href="css/pp-performance-center.css?v=99" />
 </head>
-<body>
-  <p><a href="services/physical-therapy/">360 Physical Therapy</a></p>
+<body class="page-refined page-tri-squad-overlap page-tri-squad-vertical page-performance-center">
+  <header class="center-site-header" id="center-site-header">
+    <div class="center-site-header__top">
+      <div class="center-site-header__utility">
+        <div class="center-site-header__utility-end">
+          <a href="https://www.purplepatchfitness.com/">Purple Patch Home</a>
+          <a href="https://apps.apple.com/us/app/purple-patch/id1502928860?ls=1">Download iOS App</a>
+          <a href="login/">Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="center-site-header__main">
+      <div class="center-site-header__bar">
+      <a class="center-site-header__brand" href="#top">
+        <img src="images/performance-center/logo-center.png?v=2" alt="Purple Patch Center" width="382" height="127" />
+      </a>
+      <nav class="center-site-header__nav" aria-label="Primary">
+        <a href="#classes">Classes</a>
+        <div class="center-site-header__dropdown">
+          <button type="button" class="center-site-header__drop-btn" aria-haspopup="true">Services</button>
+          <div class="center-site-header__dropdown-panel">
+            <a href="https://stgcenterpp.wpenginepowered.com/services/strategic-bike-fitting/">Strategic Bike Fitting with Chris Soden</a>
+            <a href="https://stgcenterpp.wpenginepowered.com/services/smi-orthopedic-massage/">SMI Orthopedic Massage</a>
+            <a href="https://stgcenterpp.wpenginepowered.com/services/sweat-testing/">Precision Hydration Sweat Testing</a>
+            <a href="services/physical-therapy/">360 Physical Therapy</a>
+            <a href="https://stgcenterpp.wpenginepowered.com/services/coaching-consultations/">1:1 Coaching Consultations</a>
+          </div>
+        </div>
+        <a class="btn-blue btn-blue--solid" href="schedule/">Book a Class</a>
+        <a class="btn-blue-outline" href="/pricing/">Join Us</a>
+      </nav>
+      <button type="button" class="center-site-header__menu-btn" id="centerMenuButton" aria-expanded="false" aria-controls="centerMenuPanel" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M.5 2.5h11v1H.5zm0 3h11v1H.5zm0 3h11v1H.5z"/></svg>
+      </button>
+    </div>
+    </div>
+  </header>
+  <div class="center-site-menu" id="centerMenuPanel" hidden>
+    <div class="center-site-menu__top">
+      <a class="center-site-header__brand" href="#top">
+        <img src="images/performance-center/logo-center.png?v=2" alt="Purple Patch Center" width="382" height="127" />
+      </a>
+      <button type="button" class="center-site-menu__close" id="centerMenuClose" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M2.1 1.4 6 5.3l3.9-3.9.7.7L6.7 6l3.9 3.9-.7.7L6 6.7l-3.9 3.9-.7-.7L5.3 6 1.4 2.1z"/></svg>
+      </button>
+    </div>
+    <nav class="center-site-menu__nav" aria-label="Mobile">
+      <p class="center-site-menu__label">Quick Links</p>
+      <div class="center-site-menu__sub">
+        <a href="https://www.purplepatchfitness.com/">Purple Patch Home</a>
+        <a href="https://apps.apple.com/us/app/purple-patch/id1502928860?ls=1">Download iOS App</a>
+        <a href="login/">Login</a>
+      </div>
+      <a href="#classes">Classes</a>
+      <p class="center-site-menu__label">Services</p>
+      <div class="center-site-menu__sub">
+        <a href="https://stgcenterpp.wpenginepowered.com/services/strategic-bike-fitting/">Strategic Bike Fitting with Chris Soden</a>
+        <a href="https://stgcenterpp.wpenginepowered.com/services/smi-orthopedic-massage/">SMI Orthopedic Massage</a>
+        <a href="https://stgcenterpp.wpenginepowered.com/services/sweat-testing/">Precision Hydration Sweat Testing</a>
+        <a href="services/physical-therapy/">360 Physical Therapy</a>
+        <a href="https://stgcenterpp.wpenginepowered.com/services/coaching-consultations/">1:1 Coaching Consultations</a>
+      </div>
+    </nav>
+    <div class="center-site-menu__actions">
+      <a class="btn-blue btn-blue--solid" href="schedule/">Book a Class</a>
+      <a class="btn-blue-outline" href="/pricing/">Join Us</a>
+    </div>
+  </div>
+
+  <section class="hero hero--live hero--figma" id="top" data-pp-block="hero">
+    <div class="hero__media">
+      <video autoplay muted loop playsinline poster="images/performance-center/ppf-center-hero-poster.jpg">
+        <source src="images/performance-center/ppf-center-hero-video.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+          <h1>Train Smarter.<br />Get Stronger.<br />Live Better.</h1>
+      <p class="sub">A world-class training center and community for fitness, strength, and vitality.</p>
+      <button type="button" class="btn-blue btn-blue--solid" data-open-lead>First Class Free</button>
+    </div>
+  </section>
+
+  <section class="center-banner center-banner--columns scroll-scene" id="about" data-pp-block="promise">
+    <div class="center-banner__bg" aria-hidden="true"></div>
+    <div class="center-banner__columns">
+      <div class="center-banner__rail" aria-hidden="true">
+        <div class="center-banner__track">
+          <figure class="center-banner__photo"><img src="images/performance-center/figma-gallery-01.png" alt="" /></figure>
+          <figure class="center-banner__photo"><img src="images/performance-center/hero-treadmill-row.jpg" alt="" /></figure>
+          <figure class="center-banner__photo"><img src="images/performance-center/center_floor_coaching_pair.jpg" alt="" /></figure>
+        </div>
+      </div>
+      <div class="center-banner__copy">
+        <h2 class="heading heading--center heading--figma">Next-Level Fitness,<br />Next Level Results</h2>
+        <p class="lead lead--center">Our state-of-the-art Performance Center offers an exciting new approach to fitness — one specifically designed to deliver life-changing (or as we like to call them, <em>Purple Patch*</em>) results.</p>
+        <p class="center-banner__kicker">Real Trainers. Real Adjustments. Real Progress.</p>
+        <div class="center-banner__define">
+          <p class="center-banner__def"><span class="center-banner__term">*Purple Patch <em>(n.)</em></span> A period in which you are in a state of flow and experience next-level performance and results.</p>
+        </div>
+        <div class="center-banner__cta">
+          <a class="btn-blue btn-blue--solid" href="/pricing/">Join Us</a>
+        </div>
+      </div>
+      <div class="center-banner__rail" aria-hidden="true">
+        <div class="center-banner__track">
+          <figure class="center-banner__photo"><img src="images/performance-center/strip-09.png" alt="" /></figure>
+          <figure class="center-banner__photo"><img src="images/performance-center/strip-10.png" alt="" /></figure>
+          <figure class="center-banner__photo"><img src="images/performance-center/strip-11.png" alt="" /></figure>
+        </div>
+      </div>
+    </div>
+    <div class="tb-photo-carousel" data-tb-carousel aria-label="Performance Center gallery">
+      <div class="tb-photo-carousel__track">
+        <figure class="tb-photo-carousel__slide"><img src="images/performance-center/figma-gallery-01.png" alt="" /></figure>
+        <figure class="tb-photo-carousel__slide"><img src="images/performance-center/hero-treadmill-row.jpg" alt="" /></figure>
+        <figure class="tb-photo-carousel__slide"><img src="images/performance-center/center_floor_coaching_pair.jpg" alt="" /></figure>
+        <figure class="tb-photo-carousel__slide"><img src="images/performance-center/strip-09.png" alt="" /></figure>
+        <figure class="tb-photo-carousel__slide"><img src="images/performance-center/strip-10.png" alt="" /></figure>
+        <figure class="tb-photo-carousel__slide"><img src="images/performance-center/strip-11.png" alt="" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="center-classes center-classes--figma scroll-scene" id="classes" data-pp-block="classes">
+    <div class="center-classes__inner">
+      <div class="center-classes__intro">
+        <h2 class="heading heading--center heading--figma">Classes</h2>
+        <p class="lead lead--center center-subhead">All of our immersive classes are designed to empower people to unlock their full potential, feel better, and have more fun.</p>
+      </div>
+      <div class="class-flips">
+        <article class="class-flip" id="class-bike" tabindex="0">
+          <div class="class-flip__inner">
+            <div class="class-flip__face class-flip__front">
+              <img src="images/performance-center/class-bike.jpg" alt="" />
+              <h3>Bike</h3>
+            </div>
+            <div class="class-flip__face class-flip__back">
+              <h3>Bike</h3>
+              <ul>
+                <li>Hyper-efficient, immersive + fun training for fast, measurable results</li>
+                <li>Real-time smart-trainer metrics and data for easier progress</li>
+                <li>Custom-built bikes and a supportive small-group environment</li>
+              </ul>
+              <a class="btn-blue btn-blue--solid" href="schedule/">Book a class</a>
+            </div>
+          </div>
+        </article>
+        <article class="class-flip" id="class-hyrox" tabindex="0">
+          <div class="class-flip__inner">
+            <div class="class-flip__face class-flip__front">
+              <img src="images/performance-center/class-hyrox.jpg" alt="" />
+              <h3>HYROX</h3>
+            </div>
+            <div class="class-flip__face class-flip__back">
+              <h3>HYROX</h3>
+              <p class="class-flip__sub">Official HYROX training tailored to your individual level</p>
+              <ul>
+                <li>The ultimate combination of running, functional strength training and joy</li>
+                <li>Certified HYROX coaches to get you to the finish line safely and with a personal best</li>
+                <li>Personal-training attention with small-group energy</li>
+              </ul>
+              <a class="btn-blue btn-blue--solid" href="schedule/">Book a class</a>
+            </div>
+          </div>
+        </article>
+        <article class="class-flip" id="class-strength" tabindex="0">
+          <div class="class-flip__inner">
+            <div class="class-flip__face class-flip__front">
+              <img src="images/performance-center/center_floor_barbell_row.jpg" alt="" />
+              <h3>Strength</h3>
+            </div>
+            <div class="class-flip__face class-flip__back">
+              <h3>Strength</h3>
+              <ul>
+                <li>Supportive, hands-on classes limited to 8 participants</li>
+                <li>Structured, progressive sessions with real-time feedback and coaching</li>
+                <li>Personal-training attention with small-group energy</li>
+              </ul>
+              <a class="btn-blue btn-blue--solid" href="schedule/">Book a class</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="lead lead--center class-flips__after center-subhead">No matter which class you choose, we meet you where you are and push you further.</p>
+    </div>
+  </section>
+
+  <section class="center-attention scroll-scene" data-pp-block="attention">
+    <div class="center-attention__inner">
+      <h2 class="heading heading--center heading--figma">Personal Attention For Better Results</h2>
+      <p class="lead lead--center center-subhead">At Purple Patch, you’re never a number. You’re an athlete, and our mission is to coach you towards your full potential so that you reap the greatest rewards — and have a lot of fun along the way.</p>
+      <div class="center-attention__layout">
+        <div class="center-attention__photos" data-photo-switch>
+          <img class="is-active" src="images/performance-center/attention-1.png" alt="Coach working one to one with a member on the floor" width="576" height="424" />
+          <img src="images/performance-center/attention-2.png" alt="Coach giving cues during a bike class" width="280" height="200" />
+          <img src="images/performance-center/final-cta-bg.jpg" alt="Athletes training at Purple Patch Performance Center" width="280" height="200" />
+        </div>
+        <ul class="center-attention__points">
+          <li>Smaller classes where highly-skilled coaches focus on and improve your form, maximizing benefits and reducing injury risk.</li>
+          <li>Maximizing benefits and reducing injury risk</li>
+          <li>Classes custom-tailored to your current level and goals, following structured programs</li>
+          <li>Designed to help you consistently improve, avoid over-training, and sustain momentum</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="center-offerings scroll-scene" id="services" data-pp-block="services">
+    <div class="center-offerings__inner">
+      <h2 class="heading heading--center heading--figma">So Much More Than A Gym</h2>
+      <p class="lead lead--center center-subhead">Our approach extends far beyond workouts and classes.<br />We offer best-in-class integrated services so you can train smarter, and perform at your best.</p>
+      <div class="center-offerings__grid">
+        <a class="center-offerings__card" href="https://stgcenterpp.wpenginepowered.com/services/coaching-consultations/">
+          <img src="images/performance-center/service-personal-training.jpg" alt="" width="390" height="290" />
+          <h3>Personal training</h3>
+        </a>
+        <a class="center-offerings__card" href="https://stgcenterpp.wpenginepowered.com/services/sweat-testing/">
+          <img src="images/performance-center/service-sweat-testing.jpg" alt="" width="390" height="290" />
+          <h3>Sweat testing</h3>
+        </a>
+        <a class="center-offerings__card" href="https://stgcenterpp.wpenginepowered.com/services/smi-orthopedic-massage/">
+          <img src="images/performance-center/service-sports-massage.png" alt="" width="390" height="290" />
+          <h3>Sports massage</h3>
+        </a>
+        <a class="center-offerings__card" href="services/physical-therapy/">
+          <img src="images/performance-center/service-physio.png" alt="" width="390" height="290" />
+          <h3>360 Physical Therapy</h3>
+        </a>
+        <a class="center-offerings__card" href="https://stgcenterpp.wpenginepowered.com/services/strategic-bike-fitting/">
+          <img src="images/performance-center/service-bike-fitting.jpg" alt="" width="390" height="290" />
+          <h3>Bike fitting</h3>
+        </a>
+        <button type="button" class="center-offerings__card" data-open-service-lead data-service="Run Analysis">
+          <img class="center-offerings__photo--top" src="images/performance-center/service-run.jpg" alt="" width="390" height="290" />
+          <h3>Run analysis</h3>
+        </button>
+        <button type="button" class="center-offerings__card" data-open-service-lead data-service="Strength Analysis">
+          <img src="images/performance-center/service-strength.jpg" alt="" width="390" height="290" />
+          <h3>Strength analysis</h3>
+        </button>
+        <button type="button" class="center-offerings__card" data-open-service-lead data-service="Nutrition">
+          <img src="images/performance-center/service-nutrition.jpg" alt="" width="390" height="290" />
+          <h3>Nutrition</h3>
+        </button>
+        <button type="button" class="center-offerings__card" data-open-service-lead data-service="Menopause Support">
+          <img src="images/performance-center/service-menopause.jpg?v=2" alt="" width="390" height="290" />
+          <h3>Menopause support</h3>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="coach-scroll" data-pp-block="coaches" data-pp-pattern="vertical-parallax">
+    <div class="coach-scroll__pin">
+      <div class="coach-film__header">
+        <h2 class="heading heading--center heading--figma">Best Coaches In The Bay Area</h2>
+        <p class="lead">The Purple Patch coaching team is one of the most experienced, caring, and invested groups of coaches you’ll find anywhere. Supported through ongoing mentorship from Matt Dixon, our coaches combine proven expertise with genuine partnership — helping athletes unlock their potential while enjoying the journey along the way.</p>
+        <p class="lead">Whether you’re training for an event, returning to fitness, or trying to build strength for everyday life, we’ve got your back.</p>
+      </div>
+      <div class="coach-film">
+        <div class="coach-film__track">
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-matt-figma.png?v=6" alt="Matt" />
+            <div class="coach-card__info"><div class="coach-card__name">Matt</div><div class="coach-card__title">Founder and Head Coach</div></div>
+          </article>
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-jon.png?v=6" alt="Jon" />
+            <div class="coach-card__info"><div class="coach-card__name">Jon</div><div class="coach-card__title">Coach and Center Manager</div></div>
+          </article>
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-marcia-figma.png?v=6" alt="Marcia" />
+            <div class="coach-card__info"><div class="coach-card__name">Marcia</div><div class="coach-card__title">Strength Coach</div></div>
+          </article>
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-krystle-figma.png?v=6" alt="Krystle" />
+            <div class="coach-card__info"><div class="coach-card__name">Krystle</div><div class="coach-card__title">Strength Coach</div></div>
+          </article>
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-cj.jpg?v=6" alt="CJ" />
+            <div class="coach-card__info"><div class="coach-card__name">CJ</div><div class="coach-card__title">Coach (Coming Soon)</div></div>
+          </article>
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-jena.png?v=6" alt="Jena" />
+            <div class="coach-card__info"><div class="coach-card__name">Jena</div><div class="coach-card__title">Coach</div></div>
+          </article>
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-kristin.png?v=6" alt="Kristin" />
+            <div class="coach-card__info"><div class="coach-card__name">Kristin</div><div class="coach-card__title">Coach</div></div>
+          </article>
+          <article class="coach-card coach-card--cutout" data-v-parallax="photo" data-v-speed="0.22">
+            <img src="images/performance-center/coach-tyler.png?v=6" alt="Tyler" />
+            <div class="coach-card__info"><div class="coach-card__name">Tyler</div><div class="coach-card__title">Coach</div></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center-manifesto center-manifesto--figma scroll-scene" data-pp-block="results" id="results">
+    <div class="center-manifesto__inner">
+      <h2 class="heading heading--center heading--figma center-manifesto__title">Born out of world-class sport<br />Designed for everyday people</h2>
+      <p class="lead lead--center center-subhead">The key to physical and mental transformation is doing it the <em>right</em> way. Our focus on progressively structured classes, with guided support every step of the way, is designed to unlock your full potential and ensure lasting improvement.</p>
+      <div class="center-manifesto__cards story-quotes story-quotes--carousel" data-quote-carousel>
+        <article class="story-quote is-active">
+          <blockquote>"It's the perfect mix of serious and fun. Because it's run by world-class coaches who I'd trust with my life, I just have to show up, follow their lead, and enjoy the welcoming and energizing community."</blockquote>
+        </article>
+        <article class="story-quote">
+          <blockquote>"The coaches are not just friendly; they are involved and engaged. The amount of attention they give to your form and progress makes each class feel like personal training at a fraction of the cost."</blockquote>
+        </article>
+        <article class="story-quote">
+          <blockquote>"I have tried a lot of gyms in my life, but this place is different. These are the best classes I've experienced anywhere, and the results speak for themselves."</blockquote>
+        </article>
+        <article class="story-quote">
+          <blockquote>"Smaller classes with more personalized attention allow me to push myself harder without worrying about getting hurt."</blockquote>
+        </article>
+        <div class="story-quotes__nav">
+          <button type="button" class="story-quotes__btn" data-quote-prev aria-label="Previous testimonial">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="story-quotes__dots" data-quote-dots></div>
+          <button type="button" class="story-quotes__btn" data-quote-next aria-label="Next testimonial">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="value-rows scroll-scene" data-pp-block="founders" data-pp-pattern="stacked-rows" id="visit">
+    <div class="value-rows__inner">
+      <h2 class="heading heading--center heading--figma value-rows__title reveal">Locally-Owned &amp; Mission-Led</h2>
+      <p class="lead lead--center reveal">Founded by Matt Dixon — world-renowned performance coach to IRONMAN champions, Olympic medalists, and high-performing executives — and Kelli McMaster, a leadership and wellness advocate championing women’s performance in all stages of life, Purple Patch is on a mission to empower Bay Area residents to train smarter, recover better and unlock their full potential.</p>
+      <div class="cta-stack cta-stack--row value-rows__cta reveal">
+        <a class="btn-blue btn-blue--solid" href="schedule/">Book a class</a>
+        <a class="btn-blue-outline" href="/pricing/">Join Us</a>
+      </div>
+      <div class="center-masonry reveal">
+        <figure class="center-masonry__hero">
+          <img src="images/performance-center/founders-matt-kelli.jpg?v=1" alt="Matt Dixon and Kelli McMaster" width="819" height="1024" />
+          <figcaption>
+            <span><strong>Matt Dixon</strong> Founder, performance coach</span>
+            <span><strong>Kelli McMaster</strong> Co-founder, wellness advocate</span>
+          </figcaption>
+        </figure>
+        <div class="center-masonry__still">
+          <img src="images/performance-center/founders-masonry-1.png" alt="Athletes in a cycling class" />
+          <img src="images/performance-center/masonry-trx.jpg" alt="Training studio wall" />
+          <img src="images/performance-center/founders-masonry-5.png" alt="Conversation at the Center cafe" />
+          <img src="images/performance-center/strip-06.png" alt="" />
+          <img src="images/performance-center/strip-02.png" alt="" />
+          <img src="images/performance-center/masonry-cyclist.jpg" alt="Athlete walking through the Center" />
+        </div>
+        <div class="center-masonry__marquee">
+          <div class="center-masonry__marquee-run">
+            <div class="center-masonry__track">
+              <img class="center-masonry__from-still" src="images/performance-center/founders-masonry-1.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/masonry-trx.jpg" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/founders-masonry-5.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/strip-06.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/strip-02.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/masonry-cyclist.jpg" alt="" />
+              <img src="images/performance-center/founders-masonry-6.png" alt="Members training on the floor" />
+              <img src="images/performance-center/founders-masonry-2.png" alt="Members stretching together" />
+              <img src="images/performance-center/strip-03.png" alt="" />
+              <img src="images/performance-center/strip-04.png" alt="" />
+              <img src="images/performance-center/strip-05.png" alt="" />
+              <img src="images/performance-center/attention-3.png" alt="" />
+              <img src="images/performance-center/testimonial-kettlebell.jpg" alt="" />
+              <img src="images/performance-center/masonry-hall.jpg" alt="Members talking with a coach in the Center hallway" />
+              <img src="images/performance-center/masonry-cycling-door.jpg" alt="Cycling studio door" />
+              <img src="images/performance-center/masonry-rock-n-roll.jpg" alt="Indoor cycling studio" />
+              <img src="images/performance-center/masonry-lockers.jpg" alt="Locker room" />
+              <img src="images/performance-center/masonry-wayfinding.jpg" alt="Studio wayfinding" />
+              <img src="images/performance-center/masonry-weights.jpg" alt="Strength floor" />
+              <img src="images/performance-center/masonry-production.jpg" alt="Live cycling production" />
+              <img src="images/performance-center/masonry-entrance.jpg" alt="Matt Dixon at the Center entrance" />
+              <img src="images/performance-center/masonry-courage.jpg" alt="It takes courage neon" />
+              <img src="images/performance-center/masonry-training-floor.jpg" alt="Open training floor" />
+              <img src="images/performance-center/masonry-physio.jpg" alt="Therapy room" />
+              <img src="images/performance-center/masonry-community-board.jpg" alt="We Are Purple Patch board" />
+              <img src="images/performance-center/masonry-restroom.jpg" alt="Center restroom" />
+              <img src="images/performance-center/masonry-plaque.jpg" alt="Purple Patch definition plaque" />
+              <img src="images/performance-center/center_floor_kettlebell_single.jpg" alt="" />
+              <img src="images/performance-center/strip-07.png" alt="" />
+              <img src="images/performance-center/strip-08.png" alt="" />
+              <img src="images/performance-center/strip-12.png" alt="" />
+            </div>
+            <div class="center-masonry__track center-masonry__track--clone" aria-hidden="true">
+              <img class="center-masonry__from-still" src="images/performance-center/founders-masonry-1.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/masonry-trx.jpg" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/founders-masonry-5.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/strip-06.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/strip-02.png" alt="" />
+              <img class="center-masonry__from-still" src="images/performance-center/masonry-cyclist.jpg" alt="" />
+              <img src="images/performance-center/founders-masonry-6.png" alt="" />
+              <img src="images/performance-center/founders-masonry-2.png" alt="" />
+              <img src="images/performance-center/strip-03.png" alt="" />
+              <img src="images/performance-center/strip-04.png" alt="" />
+              <img src="images/performance-center/strip-05.png" alt="" />
+              <img src="images/performance-center/attention-3.png" alt="" />
+              <img src="images/performance-center/testimonial-kettlebell.jpg" alt="" />
+              <img src="images/performance-center/masonry-hall.jpg" alt="" />
+              <img src="images/performance-center/masonry-cycling-door.jpg" alt="" />
+              <img src="images/performance-center/masonry-rock-n-roll.jpg" alt="" />
+              <img src="images/performance-center/masonry-lockers.jpg" alt="" />
+              <img src="images/performance-center/masonry-wayfinding.jpg" alt="" />
+              <img src="images/performance-center/masonry-weights.jpg" alt="" />
+              <img src="images/performance-center/masonry-production.jpg" alt="" />
+              <img src="images/performance-center/masonry-entrance.jpg" alt="" />
+              <img src="images/performance-center/masonry-courage.jpg" alt="" />
+              <img src="images/performance-center/masonry-training-floor.jpg" alt="" />
+              <img src="images/performance-center/masonry-physio.jpg" alt="" />
+              <img src="images/performance-center/masonry-community-board.jpg" alt="" />
+              <img src="images/performance-center/masonry-restroom.jpg" alt="" />
+              <img src="images/performance-center/masonry-plaque.jpg" alt="" />
+              <img src="images/performance-center/center_floor_kettlebell_single.jpg" alt="" />
+              <img src="images/performance-center/strip-07.png" alt="" />
+              <img src="images/performance-center/strip-08.png" alt="" />
+              <img src="images/performance-center/strip-12.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="surface surface--footer-links" data-pp-block="footer-links">
+    <div class="footer-links-grid">
+      <div>
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="https://www.purplepatchfitness.com/coaches">The Coaches</a></li>
+          <li><a href="https://www.purplepatchfitness.com/pillarsofperformance">Pillars of Performance</a></li>
+          <li><a href="https://www.purplepatchfitness.com/the-dixonary">Dixon-ary</a></li>
+          <li><a href="https://www.purplepatchfitness.com/careers-page">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://www.purplepatchfitness.com/our-methodology">Pro Athletes</a></li>
+          <li><a href="https://www.purplepatchfitness.com/podcast">Podcasts</a></li>
+          <li><a href="https://www.purplepatchfitness.com/press">Press Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Coaching Plans</h3>
+        <ul>
+          <li><a href="https://squad.purplepatchfitness.com">Squad</a></li>
+          <li><a href="https://www.purplepatchfitness.com/11-coached">1-1 Coaching</a></li>
+          <li><a href="https://store.purplepatchfitness.com/collections/camps">Camps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <ul>
+          <li><a href="https://education.purplepatchfitness.com/hc/en-us/requests/new">Contact Us</a></li>
+          <li><a href="https://www.purplepatchfitness.com/coachingconsult">Book a Consult</a></li>
+          <li><a href="https://education.purplepatchfitness.com/hc/en-us/sections/360003587694-Purple-Patch-FAQ">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" data-pp-block="footer">
+    <img src="images/performance-center/footer-plogo-gold.png" alt="Purple Patch Fitness" />
+    <ul class="site-footer__legal">
+      <li><a href="https://www.purplepatchfitness.com/pp-privacy-policy">Privacy Policy</a></li>
+      <li><a href="https://www.purplepatchfitness.com/purple-patch-terms-and-conditions">Terms of Service</a></li>
+      <li><a href="https://www.purplepatchfitness.com/">Copyright Purple Patch Fitness <span id="copyright-year"></span></a></li>
+    </ul>
+  </footer>
+
+  <div class="center-lead" id="centerLead" hidden>
+    <div class="center-lead__backdrop" data-close-lead></div>
+    <div class="center-lead__panel" role="dialog" aria-modal="true" aria-labelledby="centerLeadTitle" aria-describedby="centerLeadSub">
+      <button type="button" class="center-lead__close" data-close-lead aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M2.1 1.4 6 5.3l3.9-3.9.7.7L6.7 6l3.9 3.9-.7.7L6 6.7l-3.9 3.9-.7-.7L5.3 6 1.4 2.1z"/></svg>
+      </button>
+      <p class="center-lead__eyebrow">First Class Free</p>
+      <h2 id="centerLeadTitle">Claim Your Free Class</h2>
+      <p class="center-lead__sub" id="centerLeadSub">Tell us how to reach you and we’ll get you booked for your first session at the Purple Patch Center.</p>
+      <form class="center-lead__form" id="centerLeadForm">
+        <label class="center-lead__field">
+          <input type="text" name="name" placeholder=" " autocomplete="name" required />
+          <span class="center-lead__float">Full Name</span>
+        </label>
+        <label class="center-lead__field">
+          <input type="email" name="email" placeholder=" " autocomplete="email" required />
+          <span class="center-lead__float">Email</span>
+        </label>
+        <label class="center-lead__field">
+          <input type="tel" name="phone" placeholder=" " autocomplete="tel" required />
+          <span class="center-lead__float">Phone Number</span>
+        </label>
+        <button type="submit" class="btn-blue btn-blue--solid">Submit</button>
+      </form>
+      <div class="center-lead__thanks" id="centerLeadThanks" hidden>
+        <p class="center-lead__confirmed">Got it</p>
+        <h3>You’re on the list</h3>
+        <p>A coach will follow up shortly to schedule your free first class.</p>
+        <button type="button" class="btn-blue btn-blue--solid" data-close-lead>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-lead" id="centerServiceLead" hidden>
+    <div class="center-lead__backdrop" data-close-service-lead></div>
+    <div class="center-lead__panel" role="dialog" aria-modal="true" aria-labelledby="centerServiceLeadTitle" aria-describedby="centerServiceLeadSub">
+      <button type="button" class="center-lead__close" data-close-service-lead aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true"><path fill="currentColor" d="M2.1 1.4 6 5.3l3.9-3.9.7.7L6.7 6l3.9 3.9-.7.7L6 6.7l-3.9 3.9-.7-.7L5.3 6 1.4 2.1z"/></svg>
+      </button>
+      <p class="center-lead__eyebrow">Support Services</p>
+      <h2 id="centerServiceLeadTitle">How Can We Help?</h2>
+      <p class="center-lead__sub" id="centerServiceLeadSub">Tell us how to reach you and what you’re looking for. We’ll follow up soon with more info.</p>
+      <form class="center-lead__form" id="centerServiceLeadForm">
+        <label class="center-lead__field">
+          <input type="text" name="name" placeholder=" " autocomplete="name" required />
+          <span class="center-lead__float">Full Name</span>
+        </label>
+        <label class="center-lead__field">
+          <input type="email" name="email" placeholder=" " autocomplete="email" required />
+          <span class="center-lead__float">Email</span>
+        </label>
+        <label class="center-lead__field">
+          <input type="tel" name="phone" placeholder=" " autocomplete="tel" required />
+          <span class="center-lead__float">Phone Number</span>
+        </label>
+        <label class="center-lead__field center-lead__field--select">
+          <select name="service" id="centerServiceLeadSelect" required>
+            <option value="Run Analysis">Run Analysis</option>
+            <option value="Strength Analysis">Strength Analysis</option>
+            <option value="Nutrition">Nutrition</option>
+            <option value="Menopause Support">Menopause Support</option>
+          </select>
+          <span class="center-lead__float">What Do You Want Help With?</span>
+        </label>
+        <label class="center-lead__field center-lead__field--textarea">
+          <textarea name="details" rows="4" placeholder=" "></textarea>
+          <span class="center-lead__float">Anything Else We Should Know? <em class="center-lead__optional">(Optional)</em></span>
+        </label>
+        <button type="submit" class="btn-blue btn-blue--solid">Submit</button>
+      </form>
+      <div class="center-lead__thanks" id="centerServiceLeadThanks" hidden>
+        <p class="center-lead__confirmed">Got it</p>
+        <h3>Thanks for reaching out</h3>
+        <p>We’ll follow up soon with more info.</p>
+        <button type="button" class="btn-blue btn-blue--solid" data-close-service-lead>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/study-system-vertical.js?v=42"></script>
+  <script src="js/run-squad-overlap-motion.js?v=5"></script>
+  <script src="js/performance-center-site.js?v=15"></script>
 </body>
 </html>

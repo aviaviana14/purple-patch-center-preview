@@ -1,0 +1,129 @@
+/* Page-scoped motion for run/tri overlap + vertical pages.
+   Hidden states only apply after JS adds html.rs-motion — content stays visible if JS fails. */
+
+@keyframes rs-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rs-wipe-ltr {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes rs-wipe-rtl {
+  from { clip-path: inset(0 0 0 100%); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes rs-fade-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rs-fade-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rs-fade-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="grid"] .result-card {
+  opacity: 0;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="grid"].is-inview .result-card {
+  animation: rs-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="grid"].is-inview .result-card:nth-child(1) { animation-delay: 0s; }
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="grid"].is-inview .result-card:nth-child(2) { animation-delay: 0.12s; }
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="grid"].is-inview .result-card:nth-child(3) { animation-delay: 0.24s; }
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="grid"].is-inview .result-card:nth-child(4) { animation-delay: 0.36s; }
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"] .story-quote__photo {
+  clip-path: inset(0 100% 0 0);
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"].story-quote--flip .story-quote__photo {
+  clip-path: inset(0 0 0 100%);
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"] .story-quote__text {
+  opacity: 0;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"].is-inview .story-quote__photo {
+  animation: rs-wipe-ltr 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"].story-quote--flip.is-inview .story-quote__photo {
+  animation-name: rs-wipe-rtl;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"].is-inview .story-quote__text {
+  animation: rs-fade-slide-right 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"].story-quote--flip.is-inview .story-quote__text {
+  animation-name: rs-fade-slide-left;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote-text"] [data-rs-part] {
+  opacity: 0;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote-text"].is-inview [data-rs-part] {
+  animation: rs-fade-up-soft 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote-text"].is-inview [data-rs-part]:nth-child(1) { animation-delay: 0s; }
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote-text"].is-inview [data-rs-part]:nth-child(2) { animation-delay: 0.1s; }
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote-text"].is-inview [data-rs-part]:nth-child(3) { animation-delay: 0.2s; }
+
+html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) .stat-pill__num[data-count-to] {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="grid"] .result-card,
+  html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"] .story-quote__photo,
+  html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote"] .story-quote__text,
+  html.rs-motion :is(.page-run-squad-overlap, .page-tri-squad-overlap) [data-rs-motion="quote-text"] [data-rs-part] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    animation: none !important;
+  }
+}
